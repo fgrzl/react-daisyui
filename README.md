@@ -19,9 +19,10 @@ npm install react-daisyui
 
 ## Usage
 
+**Note:** This library requires DaisyUI and Tailwind CSS to be configured in your project.
+
 ```tsx
 import { Button, Card, Modal } from 'react-daisyui'
-import 'react-daisyui/dist/style.css'
 
 function App() {
   return (
