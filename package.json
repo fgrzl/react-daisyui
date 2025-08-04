@@ -1,0 +1,93 @@
+{
+  "name": "react-daisyui",
+  "version": "1.0.0",
+  "description": "A React component library built with DaisyUI and Tailwind CSS",
+  "homepage": "https://github.com/fgrzl/react-daisyui#readme",
+  "bugs": {
+    "url": "https://github.com/fgrzl/react-daisyui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fgrzl/react-daisyui.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "./dist/react-daisyui.umd.js",
+  "module": "./dist/react-daisyui.es.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/react-daisyui.es.js",
+      "require": "./dist/react-daisyui.umd.js"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && vite build",
+    "clean": "rimraf dist node_modules",
+    "clean:build": "npm run clean && npm install && npm run build",
+    "lint": "npx eslint . --config eslint.config.ts",
+    "lint:fix": "npx eslint . --config eslint.config.ts --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "format:lint": "npm run format && npm run lint:fix",
+    "test": "vitest run",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "react": ">=19.0.0",
+    "react-dom": ">=19.0.0"
+  },
+  "dependencies": {
+    "react-aria-components": "^1.11.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.32.0",
+    "@testing-library/jest-dom": "^6.6.4",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^24.2.0",
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
+    "@typescript-eslint/eslint-plugin": "^8.39.0",
+    "@typescript-eslint/parser": "^8.39.0",
+    "@vitejs/plugin-react": "^4.7.0",
+    "@vitest/coverage-v8": "^3.2.4",
+    "@vitest/ui": "^3.2.4",
+    "autoprefixer": "^10.4.21",
+    "clsx": "^2.1.1",
+    "daisyui": "^5.0.50",
+    "eslint": "^9.32.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.3.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jsdom": "^26.1.0",
+    "postcss": "^8.5.6",
+    "postcss-load-config": "^6.0.1",
+    "prettier": "^3.6.2",
+    "rimraf": "^6.0.1",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^4.1.11",
+    "typescript": "^5.9.2",
+    "vite": "^7.0.6",
+    "vite-plugin-dts": "^4.5.4",
+    "vitest": "^3.2.4"
+  },
+  "keywords": [
+    "react",
+    "components",
+    "ui",
+    "daisyui",
+    "tailwindcss",
+    "typescript"
+  ]
+}
