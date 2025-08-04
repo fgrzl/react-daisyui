@@ -25,7 +25,7 @@ Object.defineProperty(window, 'matchMedia', {
 // Suppress React 18 act warnings for testing
 const originalError = console.error
 beforeAll(() => {
-  console.error = (...args: any[]) => {
+  console.error = (...args: unknown[]) => {
     if (
       typeof args[0] === 'string' &&
       (args[0].includes('Warning: An update to') ||
