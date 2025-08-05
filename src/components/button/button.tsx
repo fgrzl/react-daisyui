@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Button as AriaButton, type ButtonProps as AriaButtonProps } from 'react-aria-components'
 import { cn } from '@/utils/cn'
 import type { PressEvent } from 'react-aria-components'
@@ -62,6 +62,7 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const [isPressed, setIsPressed] = useState(false)
+  const timeoutRef = useRef<number | null>(null)
 
   const buttonClasses = cn(
     'btn',
