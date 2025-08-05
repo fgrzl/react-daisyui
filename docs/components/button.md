@@ -56,35 +56,39 @@ import { Button } from 'react-daisyui'
 <Button block>Block Button</Button>
 <Button circle>○</Button>
 <Button square>□</Button>
+<Button glass>Glass Effect</Button>
+<Button active>Active State</Button>
 ```
 
 ### Disabled Button
 
 ```tsx
-<Button disabled>Disabled Button</Button>
+<Button isDisabled>Disabled Button</Button>
 ```
 
 ### Custom Event Handlers
 
 ```tsx
-<Button onClick={() => console.log('Button clicked!')}>Click me</Button>
+<Button onPress={() => console.log('Button pressed!')}>Click me</Button>
 ```
 
 ## Props
 
-| Prop        | Type                                                        | Default     | Description                               |
-| ----------- | ----------------------------------------------------------- | ----------- | ----------------------------------------- |
-| `variant`   | `'primary' \| 'secondary' \| 'accent' \| 'ghost' \| 'link'` | `'primary'` | Button color variant                      |
-| `size`      | `'xs' \| 'sm' \| 'md' \| 'lg'`                              | `'md'`      | Button size                               |
-| `outline`   | `boolean`                                                   | `false`     | Whether to use outline style              |
-| `loading`   | `boolean`                                                   | `false`     | Shows loading spinner and disables button |
-| `wide`      | `boolean`                                                   | `false`     | Makes button wider                        |
-| `block`     | `boolean`                                                   | `false`     | Makes button full width                   |
-| `circle`    | `boolean`                                                   | `false`     | Makes button circular                     |
-| `square`    | `boolean`                                                   | `false`     | Makes button square                       |
-| `disabled`  | `boolean`                                                   | `false`     | Disables the button                       |
-| `className` | `string`                                                    | -           | Additional CSS classes                    |
-| `children`  | `ReactNode`                                                 | -           | Button content                            |
+| Prop        | Type                                                                                                  | Default     | Description                               |
+| ----------- | ----------------------------------------------------------------------------------------------------- | ----------- | ----------------------------------------- |
+| `variant`   | `'primary' \| 'secondary' \| 'accent' \| 'ghost' \| 'link' \| 'neutral' \| 'info' \| 'success' \| 'warning' \| 'error'` | `undefined` | Button color variant                      |
+| `size`      | `'xs' \| 'sm' \| 'md' \| 'lg'`                                                                        | `undefined` | Button size                               |
+| `outline`   | `boolean`                                                                                             | `false`     | Whether to use outline style              |
+| `loading`   | `boolean`                                                                                             | `false`     | Shows loading spinner and disables button |
+| `wide`      | `boolean`                                                                                             | `false`     | Makes button wider                        |
+| `block`     | `boolean`                                                                                             | `false`     | Makes button full width                   |
+| `circle`    | `boolean`                                                                                             | `false`     | Makes button circular                     |
+| `square`    | `boolean`                                                                                             | `false`     | Makes button square                       |
+| `glass`     | `boolean`                                                                                             | `false`     | Applies glass effect                      |
+| `active`    | `boolean`                                                                                             | `false`     | Sets button to active state               |
+| `isDisabled`| `boolean`                                                                                             | `false`     | Disables the button                       |
+| `className` | `string`                                                                                              | -           | Additional CSS classes                    |
+| `children`  | `ReactNode`                                                                                           | -           | Button content                            |
 
 ## Examples
 
@@ -106,7 +110,7 @@ function App() {
 
   return (
     <div className="space-x-2">
-      <Button variant="primary" onClick={handleSubmit} loading={loading}>
+      <Button variant="primary" onPress={handleSubmit} loading={loading}>
         {loading ? 'Processing...' : 'Submit'}
       </Button>
 
