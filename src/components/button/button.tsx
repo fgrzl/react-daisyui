@@ -82,11 +82,22 @@ export default function Button({
     className
   )
 
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+      }
+    }
+  }, [])
+
   const handlePress = (e: PressEvent) => {
     setIsPressed(true)
     onPress?.(e)
     // Reset pressed state after a short delay
-    setTimeout(() => setIsPressed(false), 150)
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current)
+    }
+    timeoutRef.current = window.setTimeout(() => setIsPressed(false), 150)
   }
 
   return (
