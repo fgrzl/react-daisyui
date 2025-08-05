@@ -76,7 +76,7 @@ export default function Button({
       'btn-circle': circle,
       'btn-square': square,
       'btn-glass': glass,
-      'btn-active': active || isPressed,
+      'btn-active': active ? true : isPressed,
       loading: loading,
     },
     className
