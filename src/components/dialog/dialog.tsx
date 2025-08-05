@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   Dialog as AriaDialog,
   DialogTrigger as AriaDialogTrigger,
@@ -12,21 +13,22 @@ import { cn } from '@/utils/cn'
 /**
  * Props for the DialogTrigger component.
  *
- * @property {ReactNode} children - The trigger element and dialog content.
+ * @property {React.ReactNode} children - The trigger element and dialog content.
  */
 export interface DialogTriggerProps extends AriaDialogTriggerProps {
-  // Children is already included in AriaDialogTriggerProps
+  children: React.ReactNode
 }
 
 /**
  * Props for the Dialog component.
  *
- * @property {ReactNode} [children] - The content to display inside the dialog.
+ * @property {React.ReactNode} [children] - The content to display inside the dialog.
  * @property {string} [className] - Additional CSS classes to apply to the dialog.
  * @property {'sm' | 'md' | 'lg' | 'xl'} [size] - The size of the dialog.
  * @property {boolean} [responsive] - Whether the dialog should be responsive on mobile.
  */
 export interface DialogProps extends AriaDialogProps {
+  children?: React.ReactNode
   className?: string
   size?: 'sm' | 'md' | 'lg' | 'xl'
   responsive?: boolean
@@ -35,12 +37,13 @@ export interface DialogProps extends AriaDialogProps {
 /**
  * Props for the DialogOverlay component.
  *
- * @property {ReactNode} children - The dialog content.
+ * @property {React.ReactNode} children - The dialog content.
  * @property {string} [className] - Additional CSS classes to apply to the overlay.
  * @property {boolean} [backdrop] - Whether clicking the backdrop should close the dialog.
  * @property {boolean} [responsive] - Whether the dialog should be responsive on mobile.
  */
 export interface DialogOverlayProps extends AriaModalOverlayProps {
+  children: React.ReactNode
   className?: string
   backdrop?: boolean
   responsive?: boolean
