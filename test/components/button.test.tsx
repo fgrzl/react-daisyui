@@ -68,12 +68,12 @@ describe('Button', () => {
 
   it('applies modifier classes correctly', () => {
     render(
-      <Button wide block circle>
+      <Button wide block circle glass active>
         Modified Button
       </Button>
     )
     const button = screen.getByRole('button', { name: 'Modified Button' })
-    expect(button).toHaveClass('btn-wide', 'btn-block', 'btn-circle')
+    expect(button).toHaveClass('btn-wide', 'btn-block', 'btn-circle', 'btn-glass', 'btn-active')
   })
 
   it('handles disabled state', () => {
@@ -198,5 +198,23 @@ describe('Button', () => {
     })
 
     expect(handlePress).not.toHaveBeenCalled()
+  })
+
+  it('applies glass effect', () => {
+    render(<Button glass>Glass Button</Button>)
+    const button = screen.getByRole('button', { name: 'Glass Button' })
+    expect(button).toHaveClass('btn-glass')
+  })
+
+  it('applies active state', () => {
+    render(<Button active>Active Button</Button>)
+    const button = screen.getByRole('button', { name: 'Active Button' })
+    expect(button).toHaveClass('btn-active')
+  })
+
+  it('loading spinner has aria-hidden attribute', () => {
+    render(<Button loading>Loading Button</Button>)
+    const spinner = screen.getByRole('button').querySelector('.loading-spinner')
+    expect(spinner).toHaveAttribute('aria-hidden', 'true')
   })
 })
