@@ -40,7 +40,7 @@ describe('Checkbox', () => {
 
     const user = userEvent.setup()
     const checkbox = screen.getByRole('checkbox', { name: 'Clickable' })
-    
+
     await act(async () => {
       await user.click(checkbox)
     })
@@ -79,7 +79,9 @@ describe('Checkbox', () => {
     ] as const
 
     variants.forEach(variant => {
-      const { container, unmount } = render(<Checkbox variant={variant}>{variant} Checkbox</Checkbox>)
+      const { container, unmount } = render(
+        <Checkbox variant={variant}>{variant} Checkbox</Checkbox>
+      )
       const label = container.querySelector('label')
       expect(label).toHaveClass(`checkbox-${variant}`)
       unmount()
@@ -129,7 +131,7 @@ describe('Checkbox', () => {
 
     const user = userEvent.setup()
     const checkbox = screen.getByRole('checkbox', { name: 'Disabled Checkbox' })
-    
+
     await act(async () => {
       await user.click(checkbox)
     })
@@ -139,14 +141,11 @@ describe('Checkbox', () => {
 
   it('maintains accessibility attributes', () => {
     render(
-      <Checkbox 
-        aria-describedby="help-text"
-        aria-labelledby="label-id"
-      >
+      <Checkbox aria-describedby="help-text" aria-labelledby="label-id">
         Accessible Checkbox
       </Checkbox>
     )
-    
+
     const checkbox = screen.getByRole('checkbox', { name: 'Accessible Checkbox' })
     expect(checkbox).toHaveAttribute('aria-describedby', 'help-text')
     expect(checkbox).toHaveAttribute('aria-labelledby', 'label-id')
@@ -154,31 +153,31 @@ describe('Checkbox', () => {
 
   it('supports uncontrolled state changes', async () => {
     render(<Checkbox>Uncontrolled</Checkbox>)
-    
+
     const user = userEvent.setup()
     const checkbox = screen.getByRole('checkbox', { name: 'Uncontrolled' })
-    
+
     expect(checkbox).not.toBeChecked()
-    
+
     await act(async () => {
       await user.click(checkbox)
     })
-    
+
     expect(checkbox).toBeChecked()
-    
+
     await act(async () => {
       await user.click(checkbox)
     })
-    
+
     expect(checkbox).not.toBeChecked()
   })
 
   it('has proper focus management', async () => {
     render(<Checkbox>Focusable</Checkbox>)
-    
+
     const checkbox = screen.getByRole('checkbox', { name: 'Focusable' })
     checkbox.focus()
-    
+
     expect(checkbox).toHaveFocus()
   })
 
@@ -190,7 +189,7 @@ describe('Checkbox', () => {
         </Checkbox>
       </form>
     )
-    
+
     const checkbox = screen.getByRole('checkbox', { name: 'I agree to the terms' })
     expect(checkbox).toHaveAttribute('name', 'agreement')
     expect(checkbox).toHaveAttribute('value', 'accepted')

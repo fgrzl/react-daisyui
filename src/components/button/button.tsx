@@ -102,7 +102,12 @@ export default function Button({
   }
 
   return (
-    <AriaButton className={buttonClasses} isDisabled={isDisabled || loading} onPress={handlePress} {...props}>
+    <AriaButton
+      className={buttonClasses}
+      isDisabled={isDisabled || loading}
+      onPress={handlePress}
+      {...props}
+    >
       {loading && <span className="loading loading-spinner loading-sm mr-2" aria-hidden="true" />}
       {children}
     </AriaButton>
