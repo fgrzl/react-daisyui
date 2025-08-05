@@ -15,29 +15,29 @@ describe('Radio', () => {
   })
 
   it('applies correct variant classes', () => {
-    render(
+    const { container } = render(
       <RadioGroup>
         <Radio value="test" variant="primary">
           Primary Radio
         </Radio>
       </RadioGroup>
     )
-    // Find the radio by its accessible name
-    const radioElement = screen.getByRole('radio', { name: 'Primary Radio' })
-    expect(radioElement).toHaveClass('radio-primary')
+    // Check the label element for the DaisyUI classes (like checkbox does)
+    const label = container.querySelector('label')
+    expect(label).toHaveClass('radio-primary')
   })
 
   it('applies correct size classes', () => {
-    render(
+    const { container } = render(
       <RadioGroup>
         <Radio value="test" size="lg">
           Large Radio
         </Radio>
       </RadioGroup>
     )
-    // Find the React Aria Radio element directly using data-rac attribute
-    const radioElement = document.querySelector('[data-rac][class*="radio-lg"]') as HTMLElement
-    expect(radioElement).toHaveClass('radio-lg')
+    // Check the label element for the DaisyUI classes (consistent with checkbox pattern)
+    const label = container.querySelector('label')
+    expect(label).toHaveClass('radio-lg')
   })
 
   it('handles selection correctly', async () => {
@@ -99,16 +99,16 @@ describe('Radio', () => {
     const variants = ['primary', 'secondary', 'accent', 'success', 'warning', 'info', 'error'] as const
 
     variants.forEach(variant => {
-      const { unmount } = render(
+      const { container, unmount } = render(
         <RadioGroup>
           <Radio value="test" variant={variant}>
             {variant} Radio
           </Radio>
         </RadioGroup>
       )
-      // Find the React Aria Radio element directly using data-rac attribute
-      const radioElement = document.querySelector(`[data-rac][class*="radio-${variant}"]`) as HTMLElement
-      expect(radioElement).toHaveClass(`radio-${variant}`)
+      // Check the label element for the DaisyUI classes (consistent with checkbox pattern)
+      const label = container.querySelector('label')
+      expect(label).toHaveClass(`radio-${variant}`)
       unmount()
     })
   })
@@ -117,22 +117,22 @@ describe('Radio', () => {
     const sizes = ['xs', 'sm', 'md', 'lg'] as const
 
     sizes.forEach(size => {
-      const { unmount } = render(
+      const { container, unmount } = render(
         <RadioGroup>
           <Radio value="test" size={size}>
             {size} Radio
           </Radio>
         </RadioGroup>
       )
-      // Find the React Aria Radio element directly using data-rac attribute
-      const radioElement = document.querySelector('[data-rac][class*="radio"]') as HTMLElement
+      // Check the label element for the DaisyUI classes (consistent with checkbox pattern)
+      const label = container.querySelector('label')
 
       if (size === 'md') {
         // Medium is default with no additional class
-        expect(radioElement).toHaveClass('radio')
-        expect(radioElement).not.toHaveClass('radio-md')
+        expect(label).toHaveClass('radio')
+        expect(label).not.toHaveClass('radio-md')
       } else {
-        expect(radioElement).toHaveClass(`radio-${size}`)
+        expect(label).toHaveClass(`radio-${size}`)
       }
       unmount()
     })
@@ -185,10 +185,16 @@ describe('Radio', () => {
       </RadioGroup>
     )
 
+    const radio = screen.getByRole('radio', { name: 'Disabled Radio' })
+    expect(radio).toBeDisabled()
+    expect(radio).not.toBeChecked()
+
     await act(async () => {
-      await user.click(screen.getByRole('radio', { name: 'Disabled Radio' }))
+      await user.click(radio)
     })
 
+    // Verify the radio remains unchecked and handler isn't called
+    expect(radio).not.toBeChecked()
     expect(handleChange).not.toHaveBeenCalled()
   })
 })

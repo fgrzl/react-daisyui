@@ -34,46 +34,22 @@ export default function Radio({
   disabled = false,
   ...props
 }: RadioProps) {
-  const baseClasses = 'radio'
-
-  const variantClasses = {
-    primary: 'radio-primary',
-    secondary: 'radio-secondary',
-    accent: 'radio-accent',
-    success: 'radio-success',
-    warning: 'radio-warning',
-    info: 'radio-info',
-    error: 'radio-error',
-  } as const
-
-  const sizeClasses = {
-    xs: 'radio-xs',
-    sm: 'radio-sm',
-    md: '',
-    lg: 'radio-lg',
-  } as const
-
   const radioClasses = cn(
-    baseClasses,
-    variant && variantClasses[variant],
-    sizeClasses[size],
+    'radio',
+    {
+      [`radio-${variant}`]: variant,
+      [`radio-${size}`]: size && size !== 'md',
+    },
     className
   )
 
-  const wrapperClasses = cn(
-    'form-control'
-  )
-
   return (
-    <div className={wrapperClasses}>
-      <label className="label cursor-pointer justify-start gap-2">
-        <AriaRadio 
-          className={radioClasses}
-          isDisabled={disabled} 
-          {...props}
-        />
-        {children && <span className="label-text">{children}</span>}
-      </label>
-    </div>
+    <AriaRadio 
+      className={radioClasses}
+      isDisabled={disabled} 
+      {...props}
+    >
+      {children}
+    </AriaRadio>
   )
 }
