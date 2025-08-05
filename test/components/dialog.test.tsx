@@ -84,8 +84,8 @@ describe('Dialog', () => {
       await user.click(screen.getByRole('button', { name: 'Open Dialog' }))
     })
 
-    const overlay = document.querySelector('.modal-bottom.sm\\:modal-middle')
-    expect(overlay).toBeInTheDocument()
+    const overlay = screen.getByTestId('dialog-overlay')
+    expect(overlay).toHaveClass('modal-bottom', 'sm:modal-middle')
 
     const dialog = screen.getByRole('dialog')
     expect(dialog).toHaveClass('w-11/12', 'max-w-5xl')
