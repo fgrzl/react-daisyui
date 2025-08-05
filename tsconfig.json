@@ -31,11 +31,10 @@
     "noFallthroughCasesInSwitch": true,
 
     /* Types */
-    "types": ["vitest/globals", "@testing-library/jest-dom"],
     "declaration": true,
     "declarationMap": true,
     "outDir": "./dist"
   },
-  "include": ["src/**/*", "test/**/*", "vitest.d.ts"],
-  "exclude": ["dist/**/*", "node_modules/**/*"]
+  "include": ["src/**/*", "vitest.d.ts"],
+  "exclude": ["dist/**/*", "node_modules/**/*", "test/**/*", "**/*.test.*", "**/*.spec.*"]
 }
