@@ -64,7 +64,7 @@ export default function Modal({
 
   const positionClasses = {
     top: 'modal-top',
-    middle: 'modal-middle', 
+    middle: 'modal-middle',
     bottom: 'modal-bottom',
   } as const
 
