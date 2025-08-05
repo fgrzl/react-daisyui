@@ -32,7 +32,7 @@ describe('Dialog', () => {
 
   it('renders correctly when triggered', async () => {
     render(<DialogExample />)
-    
+
     const triggerButton = screen.getByRole('button', { name: 'Open Dialog' })
     expect(triggerButton).toBeInTheDocument()
 
@@ -48,7 +48,7 @@ describe('Dialog', () => {
 
   it('applies correct size classes', async () => {
     render(<DialogExample size="lg" />)
-    
+
     const user = userEvent.setup()
     await act(async () => {
       await user.click(screen.getByRole('button', { name: 'Open Dialog' }))
@@ -63,7 +63,7 @@ describe('Dialog', () => {
 
     for (const size of sizes) {
       const { unmount } = render(<DialogExample size={size} />)
-      
+
       const user = userEvent.setup()
       await act(async () => {
         await user.click(screen.getByRole('button', { name: 'Open Dialog' }))
@@ -71,14 +71,14 @@ describe('Dialog', () => {
 
       const dialog = screen.getByRole('dialog')
       expect(dialog).toHaveClass(`max-w-${size}`)
-      
+
       unmount()
     }
   })
 
   it('applies responsive classes when responsive prop is true', async () => {
     render(<DialogExample responsive />)
-    
+
     const user = userEvent.setup()
     await act(async () => {
       await user.click(screen.getByRole('button', { name: 'Open Dialog' }))
@@ -93,7 +93,7 @@ describe('Dialog', () => {
 
   it('applies custom className', async () => {
     render(<DialogExample className="custom-dialog" />)
-    
+
     const user = userEvent.setup()
     await act(async () => {
       await user.click(screen.getByRole('button', { name: 'Open Dialog' }))
@@ -105,7 +105,7 @@ describe('Dialog', () => {
 
   it('has correct base classes', async () => {
     render(<DialogExample />)
-    
+
     const user = userEvent.setup()
     await act(async () => {
       await user.click(screen.getByRole('button', { name: 'Open Dialog' }))
@@ -120,7 +120,7 @@ describe('Dialog', () => {
 
   it('closes when backdrop is clicked', async () => {
     render(<DialogExample backdrop />)
-    
+
     const user = userEvent.setup()
     await act(async () => {
       await user.click(screen.getByRole('button', { name: 'Open Dialog' }))
@@ -144,7 +144,7 @@ describe('Dialog', () => {
 
   it('does not close when backdrop=false and backdrop is clicked', async () => {
     render(<DialogExample backdrop={false} />)
-    
+
     const user = userEvent.setup()
     await act(async () => {
       await user.click(screen.getByRole('button', { name: 'Open Dialog' }))
@@ -166,7 +166,7 @@ describe('Dialog', () => {
 
   it('handles keyboard navigation properly', async () => {
     render(<DialogExample />)
-    
+
     const user = userEvent.setup()
     await act(async () => {
       await user.click(screen.getByRole('button', { name: 'Open Dialog' }))
@@ -193,7 +193,7 @@ describe('Dialog', () => {
 
   it('closes when Escape key is pressed', async () => {
     render(<DialogExample />)
-    
+
     const user = userEvent.setup()
     await act(async () => {
       await user.click(screen.getByRole('button', { name: 'Open Dialog' }))
@@ -213,9 +213,9 @@ describe('Dialog', () => {
 
   it('maintains focus management', async () => {
     render(<DialogExample />)
-    
+
     const triggerButton = screen.getByRole('button', { name: 'Open Dialog' })
-    
+
     const user = userEvent.setup()
     await act(async () => {
       await user.click(triggerButton)
@@ -231,7 +231,7 @@ describe('Dialog', () => {
 
   it('supports ARIA attributes', async () => {
     render(<DialogExample />)
-    
+
     const user = userEvent.setup()
     await act(async () => {
       await user.click(screen.getByRole('button', { name: 'Open Dialog' }))
@@ -258,7 +258,7 @@ describe('Dialog', () => {
     )
 
     render(<CustomDialog />)
-    
+
     const user = userEvent.setup()
     await act(async () => {
       await user.click(screen.getByRole('button', { name: 'Open Custom Dialog' }))
@@ -285,7 +285,7 @@ describe('Dialog', () => {
     )
 
     render(<CloseableDialog />)
-    
+
     const user = userEvent.setup()
     await act(async () => {
       await user.click(screen.getByRole('button', { name: 'Open Dialog' }))
@@ -305,7 +305,7 @@ describe('Dialog', () => {
 
   it('renders without responsive classes by default', async () => {
     render(<DialogExample />)
-    
+
     const user = userEvent.setup()
     await act(async () => {
       await user.click(screen.getByRole('button', { name: 'Open Dialog' }))
@@ -322,7 +322,7 @@ describe('Dialog', () => {
 
   it('has medium size as default', async () => {
     render(<DialogExample />)
-    
+
     const user = userEvent.setup()
     await act(async () => {
       await user.click(screen.getByRole('button', { name: 'Open Dialog' }))

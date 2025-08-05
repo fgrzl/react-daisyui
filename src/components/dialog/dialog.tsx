@@ -11,7 +11,7 @@ import { cn } from '@/utils/cn'
 
 /**
  * Props for the DialogTrigger component.
- * 
+ *
  * @property {ReactNode} children - The trigger element and dialog content.
  */
 export interface DialogTriggerProps extends AriaDialogTriggerProps {
@@ -20,7 +20,7 @@ export interface DialogTriggerProps extends AriaDialogTriggerProps {
 
 /**
  * Props for the Dialog component.
- * 
+ *
  * @property {ReactNode} [children] - The content to display inside the dialog.
  * @property {string} [className] - Additional CSS classes to apply to the dialog.
  * @property {'sm' | 'md' | 'lg' | 'xl'} [size] - The size of the dialog.
@@ -34,7 +34,7 @@ export interface DialogProps extends AriaDialogProps {
 
 /**
  * Props for the DialogOverlay component.
- * 
+ *
  * @property {ReactNode} children - The dialog content.
  * @property {string} [className] - Additional CSS classes to apply to the overlay.
  * @property {boolean} [backdrop] - Whether clicking the backdrop should close the dialog.
@@ -49,7 +49,7 @@ export interface DialogOverlayProps extends AriaModalOverlayProps {
 /**
  * DialogTrigger component that manages the dialog state and trigger.
  * Provides the context for opening and closing the dialog.
- * 
+ *
  * @example
  * ```tsx
  * <DialogTrigger>
@@ -70,7 +70,7 @@ export function DialogTrigger({ children, ...props }: DialogTriggerProps) {
 /**
  * DialogOverlay component that provides the modal overlay and backdrop.
  * This component should wrap the Dialog component.
- * 
+ *
  * @example
  * ```tsx
  * <DialogOverlay backdrop responsive>
@@ -88,10 +88,8 @@ export function DialogOverlay({
   ...props
 }: DialogOverlayProps) {
   const baseClasses = 'modal modal-open'
-  
-  const modifierClasses = [
-    responsive && 'modal-bottom sm:modal-middle'
-  ].filter(Boolean)
+
+  const modifierClasses = [responsive && 'modal-bottom sm:modal-middle'].filter(Boolean)
 
   const classes = cn(baseClasses, ...modifierClasses, className)
 
@@ -105,7 +103,7 @@ export function DialogOverlay({
 /**
  * Dialog component that provides an accessible modal dialog.
  * Should be used within a DialogTrigger and DialogOverlay.
- * 
+ *
  * @example
  * ```tsx
  * <Dialog size="md" className="custom-dialog">
@@ -134,16 +132,9 @@ export default function Dialog({
     xl: 'max-w-xl',
   } as const
 
-  const modifierClasses = [
-    responsive && 'w-11/12 max-w-5xl'
-  ].filter(Boolean)
+  const modifierClasses = [responsive && 'w-11/12 max-w-5xl'].filter(Boolean)
 
-  const classes = cn(
-    baseClasses,
-    sizeClasses[size],
-    ...modifierClasses,
-    className
-  )
+  const classes = cn(baseClasses, sizeClasses[size], ...modifierClasses, className)
 
   return (
     <AriaDialog className={classes} {...props}>

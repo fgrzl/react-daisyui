@@ -7,7 +7,7 @@ The Dialog component provides accessible modal dialogs, alerts, and confirmation
 ## Features
 
 - ✅ Fully accessible with ARIA attributes and keyboard navigation
-- ✅ Support for all DaisyUI dialog variants and states  
+- ✅ Support for all DaisyUI dialog variants and states
 - ✅ TypeScript support with proper type definitions
 - ✅ Comprehensive test coverage
 - ✅ Focus management and trap
@@ -119,27 +119,27 @@ function PersistentDialog() {
 
 ### DialogTrigger Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| children | ReactNode | - | The trigger element and dialog content |
+| Prop     | Type      | Default | Description                            |
+| -------- | --------- | ------- | -------------------------------------- |
+| children | ReactNode | -       | The trigger element and dialog content |
 
 ### DialogOverlay Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| children | ReactNode | - | The dialog content |
-| className | string | - | Additional CSS classes |
-| backdrop | boolean | true | Whether clicking backdrop closes dialog |
-| responsive | boolean | false | Whether dialog is responsive on mobile |
+| Prop       | Type      | Default | Description                             |
+| ---------- | --------- | ------- | --------------------------------------- |
+| children   | ReactNode | -       | The dialog content                      |
+| className  | string    | -       | Additional CSS classes                  |
+| backdrop   | boolean   | true    | Whether clicking backdrop closes dialog |
+| responsive | boolean   | false   | Whether dialog is responsive on mobile  |
 
 ### Dialog Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| children | ReactNode | - | The content inside the dialog |
-| className | string | - | Additional CSS classes |
-| size | 'sm' \| 'md' \| 'lg' \| 'xl' | 'md' | The size of the dialog |
-| responsive | boolean | false | Whether dialog is responsive on mobile |
+| Prop       | Type                         | Default | Description                            |
+| ---------- | ---------------------------- | ------- | -------------------------------------- |
+| children   | ReactNode                    | -       | The content inside the dialog          |
+| className  | string                       | -       | Additional CSS classes                 |
+| size       | 'sm' \| 'md' \| 'lg' \| 'xl' | 'md'    | The size of the dialog                 |
+| responsive | boolean                      | false   | Whether dialog is responsive on mobile |
 
 ## Accessibility
 
@@ -161,6 +161,7 @@ function PersistentDialog() {
 ## Examples
 
 The Dialog component is perfect for:
+
 - Confirmation dialogs
 - Form modals
 - Alert messages
