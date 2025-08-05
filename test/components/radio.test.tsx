@@ -5,7 +5,7 @@ import { Radio, RadioGroup } from '@/components/radio'
 describe('Radio', () => {
   it('renders correctly', () => {
     render(
-      <RadioGroup>
+      <RadioGroup aria-label="Test radio group">
         <Radio value="option1">Option 1</Radio>
         <Radio value="option2">Option 2</Radio>
       </RadioGroup>
@@ -16,7 +16,7 @@ describe('Radio', () => {
 
   it('applies correct variant classes', () => {
     const { container } = render(
-      <RadioGroup>
+      <RadioGroup aria-label="Test radio group">
         <Radio value="test" variant="primary">
           Primary Radio
         </Radio>
@@ -29,7 +29,7 @@ describe('Radio', () => {
 
   it('applies correct size classes', () => {
     const { container } = render(
-      <RadioGroup>
+      <RadioGroup aria-label="Test radio group">
         <Radio value="test" size="lg">
           Large Radio
         </Radio>
@@ -43,7 +43,7 @@ describe('Radio', () => {
   it('handles selection correctly', async () => {
     const user = userEvent.setup()
     render(
-      <RadioGroup>
+      <RadioGroup aria-label="Test radio group">
         <Radio value="option1">Option 1</Radio>
         <Radio value="option2">Option 2</Radio>
       </RadioGroup>
@@ -72,7 +72,7 @@ describe('Radio', () => {
 
   it('handles disabled state', () => {
     render(
-      <RadioGroup>
+      <RadioGroup aria-label="Test radio group">
         <Radio value="test" disabled>
           Disabled Radio
         </Radio>
@@ -84,7 +84,7 @@ describe('Radio', () => {
 
   it('applies custom className', () => {
     render(
-      <RadioGroup>
+      <RadioGroup aria-label="Test radio group">
         <Radio value="test" className="custom-class">
           Custom Radio
         </Radio>
@@ -100,7 +100,7 @@ describe('Radio', () => {
 
     variants.forEach(variant => {
       const { container, unmount } = render(
-        <RadioGroup>
+        <RadioGroup aria-label="Test radio group">
           <Radio value="test" variant={variant}>
             {variant} Radio
           </Radio>
@@ -118,7 +118,7 @@ describe('Radio', () => {
 
     sizes.forEach(size => {
       const { container, unmount } = render(
-        <RadioGroup>
+        <RadioGroup aria-label="Test radio group">
           <Radio value="test" size={size}>
             {size} Radio
           </Radio>
@@ -141,7 +141,7 @@ describe('Radio', () => {
   it('handles keyboard navigation', async () => {
     const user = userEvent.setup()
     render(
-      <RadioGroup>
+      <RadioGroup aria-label="Test radio group">
         <Radio value="option1">Option 1</Radio>
         <Radio value="option2">Option 2</Radio>
         <Radio value="option3">Option 3</Radio>
@@ -178,7 +178,7 @@ describe('Radio', () => {
     const user = userEvent.setup()
 
     render(
-      <RadioGroup onChange={handleChange}>
+      <RadioGroup onChange={handleChange} aria-label="Test radio group">
         <Radio value="test" disabled>
           Disabled Radio
         </Radio>
@@ -241,7 +241,7 @@ describe('RadioGroup', () => {
 
   it('supports horizontal orientation', () => {
     render(
-      <RadioGroup orientation="horizontal">
+      <RadioGroup orientation="horizontal" aria-label="Test radio group">
         <Radio value="option1">Option 1</Radio>
         <Radio value="option2">Option 2</Radio>
       </RadioGroup>
@@ -252,7 +252,7 @@ describe('RadioGroup', () => {
 
   it('disables all radios when group is disabled', () => {
     render(
-      <RadioGroup isDisabled>
+      <RadioGroup isDisabled aria-label="Test radio group">
         <Radio value="option1">Option 1</Radio>
         <Radio value="option2">Option 2</Radio>
       </RadioGroup>
@@ -268,7 +268,7 @@ describe('RadioGroup', () => {
     const user = userEvent.setup()
 
     render(
-      <RadioGroup onChange={handleChange}>
+      <RadioGroup onChange={handleChange} aria-label="Test radio group">
         <Radio value="option1">Option 1</Radio>
         <Radio value="option2">Option 2</Radio>
       </RadioGroup>
@@ -289,7 +289,7 @@ describe('RadioGroup', () => {
 
   it('applies custom className', () => {
     render(
-      <RadioGroup className="custom-group-class">
+      <RadioGroup className="custom-group-class" aria-label="Test radio group">
         <Radio value="option1">Option 1</Radio>
       </RadioGroup>
     )
@@ -300,7 +300,7 @@ describe('RadioGroup', () => {
   it('maintains single selection behavior', async () => {
     const user = userEvent.setup()
     render(
-      <RadioGroup>
+      <RadioGroup aria-label="Test radio group">
         <Radio value="option1">Option 1</Radio>
         <Radio value="option2">Option 2</Radio>
         <Radio value="option3">Option 3</Radio>
