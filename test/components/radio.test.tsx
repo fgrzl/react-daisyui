@@ -22,8 +22,9 @@ describe('Radio', () => {
         </Radio>
       </RadioGroup>
     )
-    const radio = screen.getByRole('radio')
-    expect(radio).toHaveClass('radio-primary')
+    // Find the React Aria Radio element directly using data-rac attribute
+    const radioElement = document.querySelector('[data-rac][class*="radio-primary"]') as HTMLElement
+    expect(radioElement).toHaveClass('radio-primary')
   })
 
   it('applies correct size classes', () => {
@@ -34,8 +35,9 @@ describe('Radio', () => {
         </Radio>
       </RadioGroup>
     )
-    const radio = screen.getByRole('radio')
-    expect(radio).toHaveClass('radio-lg')
+    // Find the React Aria Radio element directly using data-rac attribute
+    const radioElement = document.querySelector('[data-rac][class*="radio-lg"]') as HTMLElement
+    expect(radioElement).toHaveClass('radio-lg')
   })
 
   it('handles selection correctly', async () => {
@@ -88,8 +90,9 @@ describe('Radio', () => {
         </Radio>
       </RadioGroup>
     )
-    const radio = screen.getByRole('radio')
-    expect(radio).toHaveClass('custom-class')
+    // Find the React Aria Radio element directly using data-rac attribute
+    const radioElement = document.querySelector('[data-rac][class*="custom-class"]') as HTMLElement
+    expect(radioElement).toHaveClass('custom-class')
   })
 
   it('supports all DaisyUI variant colors', () => {
@@ -103,8 +106,9 @@ describe('Radio', () => {
           </Radio>
         </RadioGroup>
       )
-      const radio = screen.getByRole('radio')
-      expect(radio).toHaveClass(`radio-${variant}`)
+      // Find the React Aria Radio element directly using data-rac attribute
+      const radioElement = document.querySelector(`[data-rac][class*="radio-${variant}"]`) as HTMLElement
+      expect(radioElement).toHaveClass(`radio-${variant}`)
       unmount()
     })
   })
@@ -120,13 +124,15 @@ describe('Radio', () => {
           </Radio>
         </RadioGroup>
       )
-      const radio = screen.getByRole('radio')
+      // Find the React Aria Radio element directly using data-rac attribute
+      const radioElement = document.querySelector('[data-rac][class*="radio"]') as HTMLElement
 
       if (size === 'md') {
         // Medium is default with no additional class
-        expect(radio).toHaveClass('radio')
+        expect(radioElement).toHaveClass('radio')
+        expect(radioElement).not.toHaveClass('radio-md')
       } else {
-        expect(radio).toHaveClass(`radio-${size}`)
+        expect(radioElement).toHaveClass(`radio-${size}`)
       }
       unmount()
     })
