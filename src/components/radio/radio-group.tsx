@@ -45,11 +45,8 @@ export default function RadioGroup({
 }: RadioGroupProps) {
   const groupClasses = cn(
     'form-control',
+    orientation === 'horizontal' ? 'flex flex-row gap-4' : 'space-y-2',
     className
-  )
-
-  const radioContainerClasses = cn(
-    orientation === 'horizontal' ? 'flex flex-row gap-4' : 'space-y-2'
   )
 
   return (
@@ -72,7 +69,7 @@ export default function RadioGroup({
           <span className="label-text-alt text-base-content/70">{description}</span>
         </div>
       )}
-      <div className={radioContainerClasses}>{children}</div>
+      <div>{children}</div>
       {errorMessage && (
         <div className="label">
           <span className="label-text-alt text-error">{errorMessage}</span>
