@@ -137,7 +137,7 @@ export default function Dialog({
     xl: 'max-w-xl',
   } as const
 
-  const modifierClasses = [responsive && 'w-11/12 max-w-5xl'].filter(Boolean)
+  const modifierClasses = [responsive && 'w-11/12', responsive && 'max-w-5xl'].filter(Boolean)
 
   const classes = cn(baseClasses, sizeClasses[size], ...modifierClasses, className)
 
