@@ -22,8 +22,8 @@ describe('Radio', () => {
         </Radio>
       </RadioGroup>
     )
-    // Find the React Aria Radio element directly using data-rac attribute
-    const radioElement = document.querySelector('[data-rac][class*="radio-primary"]') as HTMLElement
+    // Find the radio by its accessible name
+    const radioElement = screen.getByRole('radio', { name: 'Primary Radio' })
     expect(radioElement).toHaveClass('radio-primary')
   })
 
