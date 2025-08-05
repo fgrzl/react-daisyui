@@ -45,7 +45,6 @@ export default function RadioGroup({
 }: RadioGroupProps) {
   const groupClasses = cn(
     'form-control',
-    orientation === 'horizontal' && 'flex-row gap-4',
     className
   )
 
