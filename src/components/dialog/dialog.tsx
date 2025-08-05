@@ -94,7 +94,7 @@ export function DialogOverlay({
   const classes = cn(baseClasses, ...modifierClasses, className)
 
   return (
-    <AriaModalOverlay className={classes} isDismissable={backdrop} {...props}>
+    <AriaModalOverlay className={classes} isDismissable={backdrop} data-testid="dialog-overlay" {...props}>
       <AriaModal>{children}</AriaModal>
     </AriaModalOverlay>
   )
