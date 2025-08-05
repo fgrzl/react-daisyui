@@ -9,44 +9,69 @@ import { cn } from '@/utils/cn'
  * @property {string} [className] - Additional CSS classes to apply to the radio button.
  * @property {'primary' | 'secondary' | 'accent' | 'success' | 'warning' | 'info' | 'error'} [variant] - The radio variant that determines its styling.
  * @property {'xs' | 'sm' | 'md' | 'lg'} [size] - The size of the radio button.
- * @property {boolean} [disabled] - Whether the radio button is disabled.
+ * @property {boolean} [isDisabled] - Whether the radio button is disabled.
  */
 export interface RadioProps extends AriaRadioProps {
   children?: React.ReactNode
   className?: string
   variant?: 'primary' | 'secondary' | 'accent' | 'success' | 'warning' | 'info' | 'error'
   size?: 'xs' | 'sm' | 'md' | 'lg'
-  disabled?: boolean
+  isDisabled?: boolean
 }
 
 /**
- * A radio button component that provides accessible radio input functionality
- * with DaisyUI styling. Should be used within a RadioGroup component.
- *
- * @param props - The props for the Radio component
- * @returns A styled radio button component
+ * Radio component built with React Aria and styled with DaisyUI.
+ * 
+ * Provides an accessible radio button input with support for all DaisyUI variants,
+ * sizes, and states. Must be used within a RadioGroup component for proper
+ * accessibility and single-selection behavior.
+ * 
+ * @example
+ * ```tsx
+ * <RadioGroup aria-label="Priority level">
+ *   <Radio value="low" variant="success" size="md">Low Priority</Radio>
+ *   <Radio value="high" variant="error" size="md">High Priority</Radio>
+ * </RadioGroup>
+ * ```
  */
 export default function Radio({
   children,
   className,
   variant,
   size = 'md',
-  disabled = false,
+  isDisabled = false,
   ...props
 }: RadioProps) {
+  const baseClasses = 'radio'
+
+  const variantClasses = {
+    primary: 'radio-primary',
+    secondary: 'radio-secondary',
+    accent: 'radio-accent',
+    success: 'radio-success',
+    warning: 'radio-warning',
+    info: 'radio-info',
+    error: 'radio-error',
+  } as const
+
+  const sizeClasses = {
+    xs: 'radio-xs',
+    sm: 'radio-sm',
+    md: '',
+    lg: 'radio-lg',
+  } as const
+
   const radioClasses = cn(
-    'radio',
-    {
-      [`radio-${variant}`]: variant,
-      [`radio-${size}`]: size && size !== 'md',
-    },
+    baseClasses,
+    variant && variantClasses[variant],
+    sizeClasses[size],
     className
   )
 
   return (
     <AriaRadio 
       className={radioClasses}
-      isDisabled={disabled} 
+      isDisabled={isDisabled} 
       {...props}
     >
       {children}

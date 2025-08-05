@@ -73,7 +73,7 @@ describe('Radio', () => {
   it('handles disabled state', () => {
     render(
       <RadioGroup aria-label="Test radio group">
-        <Radio value="test" disabled>
+        <Radio value="test" isDisabled>
           Disabled Radio
         </Radio>
       </RadioGroup>
@@ -153,7 +153,9 @@ describe('Radio', () => {
     const radio3 = screen.getByRole('radio', { name: 'Option 3' })
 
     // Focus the first radio
-    radio1.focus()
+    act(() => {
+      radio1.focus()
+    })
     expect(radio1).toHaveFocus()
 
     // Use arrow keys to navigate
@@ -179,7 +181,7 @@ describe('Radio', () => {
 
     render(
       <RadioGroup onChange={handleChange} aria-label="Test radio group">
-        <Radio value="test" disabled>
+        <Radio value="test" isDisabled>
           Disabled Radio
         </Radio>
       </RadioGroup>
@@ -202,7 +204,7 @@ describe('Radio', () => {
 describe('RadioGroup', () => {
   it('renders with label', () => {
     render(
-      <RadioGroup label="Choose an option">
+      <RadioGroup label="Choose an option" aria-label="Choose an option">
         <Radio value="option1">Option 1</Radio>
         <Radio value="option2">Option 2</Radio>
       </RadioGroup>
@@ -212,7 +214,10 @@ describe('RadioGroup', () => {
 
   it('renders with description', () => {
     render(
-      <RadioGroup description="Select one of the following options">
+      <RadioGroup 
+        description="Select one of the following options" 
+        aria-label="Option selection"
+      >
         <Radio value="option1">Option 1</Radio>
         <Radio value="option2">Option 2</Radio>
       </RadioGroup>
@@ -222,7 +227,10 @@ describe('RadioGroup', () => {
 
   it('renders with error message', () => {
     render(
-      <RadioGroup errorMessage="Please select an option">
+      <RadioGroup 
+        errorMessage="Please select an option" 
+        aria-label="Option selection"
+      >
         <Radio value="option1">Option 1</Radio>
         <Radio value="option2">Option 2</Radio>
       </RadioGroup>
@@ -232,7 +240,11 @@ describe('RadioGroup', () => {
 
   it('shows required indicator', () => {
     render(
-      <RadioGroup label="Required Field" isRequired>
+      <RadioGroup 
+        label="Required Field" 
+        isRequired 
+        aria-label="Required Field"
+      >
         <Radio value="option1">Option 1</Radio>
       </RadioGroup>
     )
