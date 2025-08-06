@@ -61,6 +61,24 @@ import { Card } from 'react-daisyui'
 </Card>
 ```
 
+### Interactive Card
+
+```tsx
+<Card interactive onPress={() => console.log('Card clicked!')}>
+  <Card.Body>
+    <Card.Title>Clickable Card</Card.Title>
+    <p>This card can be clicked and is keyboard accessible</p>
+  </Card.Body>
+</Card>
+
+<Card interactive isDisabled>
+  <Card.Body>
+    <Card.Title>Disabled Interactive Card</Card.Title>
+    <p>This card is disabled and cannot be interacted with</p>
+  </Card.Body>
+</Card>
+```
+
 ### Card with Image
 
 ```tsx
@@ -123,14 +141,17 @@ Container for action buttons or controls.
 
 ### Card Props
 
-| Prop        | Type                                    | Default | Description                       |
-| ----------- | --------------------------------------- | ------- | --------------------------------- |
-| `compact`   | `boolean`                               | `false` | Reduces padding in card body      |
-| `shadow`    | `'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | -       | Shadow size                       |
-| `bordered`  | `boolean`                               | `false` | Adds border to card               |
-| `imageFull` | `boolean`                               | `false` | Makes image cover full card width |
-| `className` | `string`                                | -       | Additional CSS classes            |
-| `children`  | `ReactNode`                             | -       | Card content                      |
+| Prop          | Type                                    | Default | Description                            |
+| ------------- | --------------------------------------- | ------- | -------------------------------------- |
+| `compact`     | `boolean`                               | `false` | Reduces padding in card body           |
+| `shadow`      | `'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | -       | Shadow size                            |
+| `bordered`    | `boolean`                               | `false` | Adds border to card                    |
+| `imageFull`   | `boolean`                               | `false` | Makes image cover full card width      |
+| `interactive` | `boolean`                               | `false` | Makes card clickable with React Aria  |
+| `onPress`     | `() => void`                            | -       | Handler for click/press events         |
+| `isDisabled`  | `boolean`                               | `false` | Disables interaction (interactive only) |
+| `className`   | `string`                                | -       | Additional CSS classes                 |
+| `children`    | `ReactNode`                             | -       | Card content                           |
 
 ### Card.Title Props
 
@@ -147,6 +168,47 @@ Container for action buttons or controls.
 | `justify`   | `'start' \| 'center' \| 'end'` | `'end'` | Actions alignment      |
 | `className` | `string`                       | -       | Additional CSS classes |
 | `children`  | `ReactNode`                    | -       | Action elements        |
+
+## Accessibility
+
+The Card component follows WCAG accessibility guidelines:
+
+- **Semantic HTML**: Uses proper HTML elements for structure
+- **Keyboard Navigation**: Interactive cards support keyboard interaction (Enter and Space)
+- **Focus Management**: Interactive cards are properly focusable
+- **Screen Reader Support**: Works with screen readers and assistive technologies
+- **ARIA Attributes**: Automatically applies appropriate roles when interactive
+
+### Interactive Cards
+
+When using `interactive` prop:
+- Card becomes focusable and clickable
+- Supports keyboard navigation (Enter/Space keys)
+- Applies `role="button"` for screen readers
+- Shows visual hover and focus states
+- Can be disabled with proper accessibility attributes
+
+```tsx
+// Good: Accessible interactive card
+<Card 
+  interactive 
+  onPress={() => navigate('/details')}
+  aria-label="View product details"
+>
+  <Card.Body>
+    <Card.Title>Product Name</Card.Title>
+    <p>Product description</p>
+  </Card.Body>
+</Card>
+
+// Good: Card with proper heading hierarchy
+<Card role="article" aria-labelledby="card-title-1">
+  <Card.Body>
+    <Card.Title id="card-title-1" as="h3">Article Title</Card.Title>
+    <p>Article content</p>
+  </Card.Body>
+</Card>
+```
 
 ## Examples
 
