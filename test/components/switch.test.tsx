@@ -31,9 +31,18 @@ describe('Switch', () => {
   })
 
   it('applies all variant classes correctly', () => {
-    const variants = ['primary', 'secondary', 'accent', 'neutral', 'info', 'success', 'warning', 'error'] as const
-    
-    variants.forEach((variant) => {
+    const variants = [
+      'primary',
+      'secondary',
+      'accent',
+      'neutral',
+      'info',
+      'success',
+      'warning',
+      'error',
+    ] as const
+
+    variants.forEach(variant => {
       const { container, unmount } = render(<Switch variant={variant}>{variant} switch</Switch>)
       const labelElement = container.querySelector('label')
       expect(labelElement).toHaveClass(`toggle-${variant}`)
@@ -48,7 +57,7 @@ describe('Switch', () => {
       { size: 'md' as const, class: '' }, // md is default, no class
       { size: 'lg' as const, class: 'toggle-lg' },
     ]
-    
+
     sizes.forEach(({ size, class: expectedClass }) => {
       const { container, unmount } = render(<Switch size={size}>{size} switch</Switch>)
       const labelElement = container.querySelector('label')
@@ -73,7 +82,7 @@ describe('Switch', () => {
 
     const user = userEvent.setup()
     const switchElement = screen.getByRole('switch', { name: 'Toggle me' })
-    
+
     await act(async () => {
       await user.click(switchElement)
     })
@@ -96,7 +105,7 @@ describe('Switch', () => {
     render(<Switch defaultSelected={false}>Uncontrolled Switch</Switch>)
     const user = userEvent.setup()
     const switchElement = screen.getByRole('switch', { name: 'Uncontrolled Switch' })
-    
+
     expect(switchElement).not.toBeChecked()
 
     await act(async () => {
@@ -114,11 +123,15 @@ describe('Switch', () => {
 
   it('does not trigger onChange when disabled', async () => {
     const handleChange = vi.fn()
-    render(<Switch isDisabled onChange={handleChange}>Disabled Switch</Switch>)
-    
+    render(
+      <Switch isDisabled onChange={handleChange}>
+        Disabled Switch
+      </Switch>
+    )
+
     const user = userEvent.setup()
     const switchElement = screen.getByRole('switch', { name: 'Disabled Switch' })
-    
+
     await act(async () => {
       await user.click(switchElement)
     })
@@ -132,7 +145,7 @@ describe('Switch', () => {
 
     const user = userEvent.setup()
     const switchElement = screen.getByRole('switch', { name: 'Keyboard Switch' })
-    
+
     switchElement.focus()
     expect(switchElement).toHaveFocus()
 
@@ -150,7 +163,7 @@ describe('Switch', () => {
 
     const user = userEvent.setup()
     const switchElement = screen.getByRole('switch', { name: 'Enter Switch' })
-    
+
     switchElement.focus()
 
     await act(async () => {
@@ -165,11 +178,11 @@ describe('Switch', () => {
     render(<Switch>Focus Switch</Switch>)
     const user = userEvent.setup()
     const switchElement = screen.getByRole('switch', { name: 'Focus Switch' })
-    
+
     await act(async () => {
       await user.tab()
     })
-    
+
     expect(switchElement).toHaveFocus()
   })
 
@@ -203,7 +216,11 @@ describe('Switch', () => {
   })
 
   it('combines variant and size classes', () => {
-    const { container } = render(<Switch variant="success" size="lg">Large Success Switch</Switch>)
+    const { container } = render(
+      <Switch variant="success" size="lg">
+        Large Success Switch
+      </Switch>
+    )
     const labelElement = container.querySelector('label')
     expect(labelElement).toHaveClass('toggle', 'toggle-success', 'toggle-lg')
   })

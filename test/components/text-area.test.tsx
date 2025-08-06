@@ -245,7 +245,13 @@ describe('TextArea', () => {
   it('combines multiple CSS classes correctly', () => {
     render(<TextArea label="Comment" variant="primary" size="lg" ghost className="custom-class" />)
     const textarea = screen.getByRole('textbox')
-    expect(textarea).toHaveClass('textarea', 'textarea-primary', 'textarea-lg', 'textarea-ghost', 'custom-class')
+    expect(textarea).toHaveClass(
+      'textarea',
+      'textarea-primary',
+      'textarea-lg',
+      'textarea-ghost',
+      'custom-class'
+    )
     expect(textarea).not.toHaveClass('textarea-bordered')
   })
 
@@ -267,7 +273,7 @@ describe('TextArea', () => {
     const textarea = screen.getByRole('textbox')
 
     const multiLineText = 'Line 1\nLine 2\nLine 3'
-    
+
     await act(async () => {
       await user.type(textarea, multiLineText)
     })
@@ -278,7 +284,7 @@ describe('TextArea', () => {
   it('supports resizing behavior', () => {
     render(<TextArea label="Comment" />)
     const textarea = screen.getByRole('textbox')
-    
+
     // TextArea elements should be resizable by default
     expect(textarea.tagName.toLowerCase()).toBe('textarea')
   })
@@ -299,7 +305,9 @@ describe('TextArea', () => {
   })
 
   it('handles value prop for controlled component', () => {
-    const { rerender } = render(<TextArea label="Comment" value="Initial value" onChange={() => {}} />)
+    const { rerender } = render(
+      <TextArea label="Comment" value="Initial value" onChange={() => {}} />
+    )
     const textarea = screen.getByRole('textbox')
     expect(textarea).toHaveValue('Initial value')
 

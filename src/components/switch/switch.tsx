@@ -1,8 +1,5 @@
 import React from 'react'
-import {
-  Switch as AriaSwitch,
-  type SwitchProps as AriaSwitchProps,
-} from 'react-aria-components'
+import { Switch as AriaSwitch, type SwitchProps as AriaSwitchProps } from 'react-aria-components'
 import { cn } from '@/utils/cn'
 
 /**

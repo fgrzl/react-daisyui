@@ -96,7 +96,15 @@ describe('Radio', () => {
   })
 
   it('supports all DaisyUI variant colors', () => {
-    const variants = ['primary', 'secondary', 'accent', 'success', 'warning', 'info', 'error'] as const
+    const variants = [
+      'primary',
+      'secondary',
+      'accent',
+      'success',
+      'warning',
+      'info',
+      'error',
+    ] as const
 
     variants.forEach(variant => {
       const { container, unmount } = render(
@@ -214,10 +222,7 @@ describe('RadioGroup', () => {
 
   it('renders with description', () => {
     render(
-      <RadioGroup 
-        description="Select one of the following options" 
-        aria-label="Option selection"
-      >
+      <RadioGroup description="Select one of the following options" aria-label="Option selection">
         <Radio value="option1">Option 1</Radio>
         <Radio value="option2">Option 2</Radio>
       </RadioGroup>
@@ -227,10 +232,7 @@ describe('RadioGroup', () => {
 
   it('renders with error message', () => {
     render(
-      <RadioGroup 
-        errorMessage="Please select an option" 
-        aria-label="Option selection"
-      >
+      <RadioGroup errorMessage="Please select an option" aria-label="Option selection">
         <Radio value="option1">Option 1</Radio>
         <Radio value="option2">Option 2</Radio>
       </RadioGroup>
@@ -240,11 +242,7 @@ describe('RadioGroup', () => {
 
   it('shows required indicator', () => {
     render(
-      <RadioGroup 
-        label="Required Field" 
-        isRequired 
-        aria-label="Required Field"
-      >
+      <RadioGroup label="Required Field" isRequired aria-label="Required Field">
         <Radio value="option1">Option 1</Radio>
       </RadioGroup>
     )

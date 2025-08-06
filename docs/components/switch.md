@@ -54,9 +54,7 @@ const [isEnabled, setIsEnabled] = useState(false)
 ### Uncontrolled Switch
 
 ```tsx
-<Switch defaultSelected={true}>
-  Uncontrolled switch with default value
-</Switch>
+<Switch defaultSelected={true}>Uncontrolled switch with default value</Switch>
 ```
 
 ### Disabled Switch
@@ -82,17 +80,17 @@ const [isEnabled, setIsEnabled] = useState(false)
 
 ## Props
 
-| Prop        | Type                                                                                | Default | Description                                    |
-| ----------- | ----------------------------------------------------------------------------------- | ------- | ---------------------------------------------- |
-| children    | `React.ReactNode`                                                                   | -       | The label content to display next to the switch |
-| className   | `string`                                                                            | -       | Additional CSS classes to apply to the switch |
-| variant     | `'primary' \| 'secondary' \| 'accent' \| 'neutral' \| 'info' \| 'success' \| 'warning' \| 'error'` | -       | The switch variant that determines its styling |
-| size        | `'xs' \| 'sm' \| 'md' \| 'lg'`                                                      | `'md'`  | The size of the switch                         |
-| isSelected  | `boolean`                                                                           | -       | Whether the switch is on (controlled)         |
-| defaultSelected | `boolean`                                                                       | -       | Whether the switch is on by default (uncontrolled) |
-| isDisabled  | `boolean`                                                                           | -       | Whether the switch is disabled                 |
-| onChange    | `(isSelected: boolean) => void`                                                     | -       | Callback fired when the switch state changes  |
-| ...props    | `SwitchProps` (from React Aria)                                                     | -       | All other React Aria Switch props             |
+| Prop            | Type                                                                                               | Default | Description                                        |
+| --------------- | -------------------------------------------------------------------------------------------------- | ------- | -------------------------------------------------- |
+| children        | `React.ReactNode`                                                                                  | -       | The label content to display next to the switch    |
+| className       | `string`                                                                                           | -       | Additional CSS classes to apply to the switch      |
+| variant         | `'primary' \| 'secondary' \| 'accent' \| 'neutral' \| 'info' \| 'success' \| 'warning' \| 'error'` | -       | The switch variant that determines its styling     |
+| size            | `'xs' \| 'sm' \| 'md' \| 'lg'`                                                                     | `'md'`  | The size of the switch                             |
+| isSelected      | `boolean`                                                                                          | -       | Whether the switch is on (controlled)              |
+| defaultSelected | `boolean`                                                                                          | -       | Whether the switch is on by default (uncontrolled) |
+| isDisabled      | `boolean`                                                                                          | -       | Whether the switch is disabled                     |
+| onChange        | `(isSelected: boolean) => void`                                                                    | -       | Callback fired when the switch state changes       |
+| ...props        | `SwitchProps` (from React Aria)                                                                    | -       | All other React Aria Switch props                  |
 
 ## Accessibility
 
@@ -119,23 +117,15 @@ The Switch component follows WCAG guidelines and includes:
 function NotificationSettings() {
   const [emailNotifications, setEmailNotifications] = useState(true)
   const [pushNotifications, setPushNotifications] = useState(false)
-  
+
   return (
     <form>
       <div className="space-y-4">
-        <Switch
-          isSelected={emailNotifications}
-          onChange={setEmailNotifications}
-          variant="primary"
-        >
+        <Switch isSelected={emailNotifications} onChange={setEmailNotifications} variant="primary">
           Email notifications
         </Switch>
-        
-        <Switch
-          isSelected={pushNotifications}
-          onChange={setPushNotifications}
-          variant="secondary"
-        >
+
+        <Switch isSelected={pushNotifications} onChange={setPushNotifications} variant="secondary">
           Push notifications
         </Switch>
       </div>
@@ -149,7 +139,7 @@ function NotificationSettings() {
 ```tsx
 function DarkModeToggle() {
   const [isDark, setIsDark] = useState(false)
-  
+
   return (
     <Switch
       isSelected={isDark}
@@ -172,15 +162,15 @@ function SettingsPanel() {
         <label className="label">
           <span className="label-text">Privacy Settings</span>
         </label>
-        
+
         <Switch variant="info" size="sm">
           Make profile public
         </Switch>
-        
+
         <Switch variant="warning" size="sm">
           Allow data collection
         </Switch>
-        
+
         <Switch variant="error" size="sm" isDisabled>
           Delete account (unavailable)
         </Switch>

@@ -19,11 +19,11 @@ export interface RadioProps extends AriaRadioProps {
 }
 /**
  * Radio component built with React Aria and styled with DaisyUI.
- * 
+ *
  * Provides an accessible radio button input with support for all DaisyUI variants,
  * sizes, and states. Must be used within a RadioGroup component for proper
  * accessibility and single-selection behavior.
- * 
+ *
  * @example
  * ```tsx
  * <RadioGroup aria-label="Priority level">
@@ -67,11 +67,7 @@ export default function Radio({
   )
 
   return (
-    <AriaRadio 
-      className={radioClasses}
-      isDisabled={isDisabled} 
-      {...props}
-    >
+    <AriaRadio className={radioClasses} isDisabled={isDisabled} {...props}>
       {children}
     </AriaRadio>
   )
