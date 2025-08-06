@@ -22,7 +22,6 @@ export interface RadioGroupProps extends AriaRadioGroupProps {
   errorMessage?: string
   orientation?: 'vertical' | 'horizontal'
   isRequired?: boolean
-  isDisabled?: boolean
 }
 
 /**
