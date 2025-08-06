@@ -22,16 +22,16 @@ import { TextArea } from 'react-daisyui'
 <TextArea label="Comment" placeholder="Enter your comment..." />
 
 // With variant and size
-<TextArea 
-  label="Feedback" 
-  variant="primary" 
+<TextArea
+  label="Feedback"
+  variant="primary"
   size="lg"
   placeholder="Share your feedback"
   rows={5}
 />
 
 // With description and error handling
-<TextArea 
+<TextArea
   label="Message"
   description="Please provide detailed information"
   errorMessage="This field is required"
@@ -41,31 +41,31 @@ import { TextArea } from 'react-daisyui'
 
 ## Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `label` | `string` | - | The content to display as the label |
-| `description` | `string` | - | The content to display as help text |
-| `errorMessage` | `string` | - | The content to display as an error message |
-| `className` | `string` | - | Additional CSS classes to apply to the textarea |
-| `wrapperClassName` | `string` | - | Additional CSS classes to apply to the wrapper |
-| `variant` | `'primary' \| 'secondary' \| 'accent' \| 'info' \| 'success' \| 'warning' \| 'error'` | - | The textarea variant that determines its styling |
-| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `'md'` | The size of the textarea |
-| `bordered` | `boolean` | `true` | Whether to use bordered style |
-| `ghost` | `boolean` | `false` | Whether to use ghost style |
-| `placeholder` | `string` | - | Placeholder text for the textarea |
-| `rows` | `number` | - | Number of visible text lines for the textarea |
-| `cols` | `number` | - | Number of visible character widths for the textarea |
-| `isInvalid` | `boolean` | `false` | Whether the input value is invalid |
-| `isDisabled` | `boolean` | `false` | Whether the textarea is disabled |
-| `isReadOnly` | `boolean` | `false` | Whether the textarea is read-only |
-| `isRequired` | `boolean` | `false` | Whether the textarea is required |
+| Prop               | Type                                                                                  | Default | Description                                         |
+| ------------------ | ------------------------------------------------------------------------------------- | ------- | --------------------------------------------------- |
+| `label`            | `string`                                                                              | -       | The content to display as the label                 |
+| `description`      | `string`                                                                              | -       | The content to display as help text                 |
+| `errorMessage`     | `string`                                                                              | -       | The content to display as an error message          |
+| `className`        | `string`                                                                              | -       | Additional CSS classes to apply to the textarea     |
+| `wrapperClassName` | `string`                                                                              | -       | Additional CSS classes to apply to the wrapper      |
+| `variant`          | `'primary' \| 'secondary' \| 'accent' \| 'info' \| 'success' \| 'warning' \| 'error'` | -       | The textarea variant that determines its styling    |
+| `size`             | `'xs' \| 'sm' \| 'md' \| 'lg'`                                                        | `'md'`  | The size of the textarea                            |
+| `bordered`         | `boolean`                                                                             | `true`  | Whether to use bordered style                       |
+| `ghost`            | `boolean`                                                                             | `false` | Whether to use ghost style                          |
+| `placeholder`      | `string`                                                                              | -       | Placeholder text for the textarea                   |
+| `rows`             | `number`                                                                              | -       | Number of visible text lines for the textarea       |
+| `cols`             | `number`                                                                              | -       | Number of visible character widths for the textarea |
+| `isInvalid`        | `boolean`                                                                             | `false` | Whether the input value is invalid                  |
+| `isDisabled`       | `boolean`                                                                             | `false` | Whether the textarea is disabled                    |
+| `isReadOnly`       | `boolean`                                                                             | `false` | Whether the textarea is read-only                   |
+| `isRequired`       | `boolean`                                                                             | `false` | Whether the textarea is required                    |
 
 ## Variants
 
 The TextArea component supports all DaisyUI color variants:
 
 - `primary` - Primary theme color
-- `secondary` - Secondary theme color  
+- `secondary` - Secondary theme color
 - `accent` - Accent theme color
 - `info` - Info/blue color
 - `success` - Success/green color
@@ -96,32 +96,30 @@ The TextArea component includes comprehensive accessibility features:
 ## Examples
 
 ### Basic TextArea
+
 ```tsx
-<TextArea 
-  label="Comment" 
-  placeholder="Enter your comment..." 
-  rows={4}
-/>
+<TextArea label="Comment" placeholder="Enter your comment..." rows={4} />
 ```
 
 ### Styled Variants
+
 ```tsx
 // Primary variant
-<TextArea 
-  label="Primary TextArea" 
+<TextArea
+  label="Primary TextArea"
   variant="primary"
   placeholder="Primary styled textarea"
 />
 
-// Success variant  
-<TextArea 
+// Success variant
+<TextArea
   label="Success TextArea"
-  variant="success" 
+  variant="success"
   placeholder="Success variant textarea"
 />
 
 // Error variant
-<TextArea 
+<TextArea
   label="Error TextArea"
   variant="error"
   placeholder="Error variant textarea"
@@ -129,47 +127,47 @@ The TextArea component includes comprehensive accessibility features:
 ```
 
 ### Different Sizes
+
 ```tsx
 // Small size
-<TextArea 
-  label="Small TextArea" 
+<TextArea
+  label="Small TextArea"
   size="sm"
   rows={3}
 />
 
 // Large size
-<TextArea 
+<TextArea
   label="Large TextArea"
-  size="lg" 
+  size="lg"
   rows={5}
 />
 ```
 
 ### Ghost Style
+
 ```tsx
-<TextArea 
-  label="Ghost TextArea"
-  ghost
-  placeholder="Ghost styled textarea"
-/>
+<TextArea label="Ghost TextArea" ghost placeholder="Ghost styled textarea" />
 ```
 
 ### With Description and Error
+
 ```tsx
-<TextArea 
+<TextArea
   label="Feedback"
   description="Please provide detailed feedback"
-  errorMessage={error ? "This field is required" : undefined}
+  errorMessage={error ? 'This field is required' : undefined}
   isInvalid={!!error}
   placeholder="Enter your feedback"
 />
 ```
 
 ### Controlled Component
+
 ```tsx
 const [value, setValue] = useState('')
 
-<TextArea 
+<TextArea
   label="Controlled TextArea"
   value={value}
   onChange={setValue}

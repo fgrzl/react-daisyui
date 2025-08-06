@@ -355,7 +355,7 @@ describe('Card interactive functionality', () => {
 
     const user = userEvent.setup()
     const card = screen.getByTestId('card')
-    
+
     await user.click(card)
     expect(handlePress).toHaveBeenCalledTimes(1)
   })
@@ -370,13 +370,13 @@ describe('Card interactive functionality', () => {
 
     const user = userEvent.setup()
     const card = screen.getByTestId('card')
-    
+
     card.focus()
     expect(card).toHaveFocus()
-    
+
     await user.keyboard('{Enter}')
     expect(handlePress).toHaveBeenCalledTimes(1)
-    
+
     await user.keyboard(' ')
     expect(handlePress).toHaveBeenCalledTimes(2)
   })
@@ -398,7 +398,7 @@ describe('Card interactive functionality', () => {
         Disabled Interactive Card
       </Card>
     )
-    
+
     const card = screen.getByTestId('card')
     expect(card).toHaveClass('opacity-50', 'cursor-not-allowed')
     expect(card).toHaveAttribute('tabIndex', '-1')
@@ -414,7 +414,7 @@ describe('Card interactive functionality', () => {
 
     const user = userEvent.setup()
     const card = screen.getByTestId('card')
-    
+
     await user.click(card)
     expect(handlePress).not.toHaveBeenCalled()
   })

@@ -26,29 +26,29 @@ function MyForm() {
 
 ### Radio Props
 
-| Prop      | Type                                                                         | Default | Description                           |
-| --------- | ---------------------------------------------------------------------------- | ------- | ------------------------------------- |
-| children  | `React.ReactNode`                                                            | -       | The label content for the radio      |
-| className | `string`                                                                     | -       | Additional CSS classes                |
-| variant   | `'primary' \| 'secondary' \| 'accent' \| 'success' \| 'warning' \| 'info' \| 'error'` | -       | The radio button variant              |
-| size      | `'xs' \| 'sm' \| 'md' \| 'lg'`                                               | `'md'`  | The size of the radio button          |
-| isDisabled  | `boolean`                                                                    | `false` | Whether the radio button is disabled  |
-| value     | `string`                                                                     | -       | The value of the radio button         |
+| Prop       | Type                                                                                  | Default | Description                          |
+| ---------- | ------------------------------------------------------------------------------------- | ------- | ------------------------------------ |
+| children   | `React.ReactNode`                                                                     | -       | The label content for the radio      |
+| className  | `string`                                                                              | -       | Additional CSS classes               |
+| variant    | `'primary' \| 'secondary' \| 'accent' \| 'success' \| 'warning' \| 'info' \| 'error'` | -       | The radio button variant             |
+| size       | `'xs' \| 'sm' \| 'md' \| 'lg'`                                                        | `'md'`  | The size of the radio button         |
+| isDisabled | `boolean`                                                                             | `false` | Whether the radio button is disabled |
+| value      | `string`                                                                              | -       | The value of the radio button        |
 
 ### RadioGroup Props
 
-| Prop         | Type                                    | Default      | Description                                         |
-| ------------ | --------------------------------------- | ------------ | --------------------------------------------------- |
-| children     | `React.ReactNode`                       | -            | The radio buttons to display within the group      |
-| className    | `string`                                | -            | Additional CSS classes                              |
-| label        | `string`                                | -            | The label for the radio group                      |
-| description  | `string`                                | -            | A description for the radio group                  |
-| errorMessage | `string`                                | -            | An error message to display if validation fails    |
-| orientation  | `'vertical' \| 'horizontal'`            | `'vertical'` | The layout orientation of the radio buttons        |
-| isRequired   | `boolean`                               | `false`      | Whether the radio group is required                |
-| isDisabled   | `boolean`                               | `false`      | Whether the entire radio group is disabled         |
-| value        | `string`                                | -            | The currently selected value                        |
-| onChange     | `(value: string) => void`               | -            | Callback fired when the selection changes          |
+| Prop         | Type                         | Default      | Description                                     |
+| ------------ | ---------------------------- | ------------ | ----------------------------------------------- |
+| children     | `React.ReactNode`            | -            | The radio buttons to display within the group   |
+| className    | `string`                     | -            | Additional CSS classes                          |
+| label        | `string`                     | -            | The label for the radio group                   |
+| description  | `string`                     | -            | A description for the radio group               |
+| errorMessage | `string`                     | -            | An error message to display if validation fails |
+| orientation  | `'vertical' \| 'horizontal'` | `'vertical'` | The layout orientation of the radio buttons     |
+| isRequired   | `boolean`                    | `false`      | Whether the radio group is required             |
+| isDisabled   | `boolean`                    | `false`      | Whether the entire radio group is disabled      |
+| value        | `string`                     | -            | The currently selected value                    |
+| onChange     | `(value: string) => void`    | -            | Callback fired when the selection changes       |
 
 ## Accessibility
 
@@ -75,9 +75,15 @@ The Radio components provide full accessibility support:
 
 ```tsx
 <RadioGroup label="Priority Level">
-  <Radio value="low" variant="success">Low Priority</Radio>
-  <Radio value="medium" variant="warning">Medium Priority</Radio>
-  <Radio value="high" variant="error">High Priority</Radio>
+  <Radio value="low" variant="success">
+    Low Priority
+  </Radio>
+  <Radio value="medium" variant="warning">
+    Medium Priority
+  </Radio>
+  <Radio value="high" variant="error">
+    High Priority
+  </Radio>
 </RadioGroup>
 ```
 
@@ -85,10 +91,18 @@ The Radio components provide full accessibility support:
 
 ```tsx
 <RadioGroup label="Select Size">
-  <Radio value="xs" size="xs">Extra Small</Radio>
-  <Radio value="sm" size="sm">Small</Radio>
-  <Radio value="md" size="md">Medium</Radio>
-  <Radio value="lg" size="lg">Large</Radio>
+  <Radio value="xs" size="xs">
+    Extra Small
+  </Radio>
+  <Radio value="sm" size="sm">
+    Small
+  </Radio>
+  <Radio value="md" size="md">
+    Medium
+  </Radio>
+  <Radio value="lg" size="lg">
+    Large
+  </Radio>
 </RadioGroup>
 ```
 
@@ -105,8 +119,8 @@ The Radio components provide full accessibility support:
 ### With Description and Error
 
 ```tsx
-<RadioGroup 
-  label="Payment Method" 
+<RadioGroup
+  label="Payment Method"
   description="Select your preferred payment method"
   errorMessage="Please select a payment method"
   isRequired
@@ -131,13 +145,9 @@ The Radio components provide full accessibility support:
 ```tsx
 function ControlledRadio() {
   const [value, setValue] = useState('option1')
-  
+
   return (
-    <RadioGroup 
-      value={value} 
-      onChange={setValue}
-      label="Controlled Radio Group"
-    >
+    <RadioGroup value={value} onChange={setValue} label="Controlled Radio Group">
       <Radio value="option1">Option 1</Radio>
       <Radio value="option2">Option 2</Radio>
       <Radio value="option3">Option 3</Radio>

@@ -141,17 +141,17 @@ Container for action buttons or controls.
 
 ### Card Props
 
-| Prop          | Type                                    | Default | Description                            |
-| ------------- | --------------------------------------- | ------- | -------------------------------------- |
-| `compact`     | `boolean`                               | `false` | Reduces padding in card body           |
-| `shadow`      | `'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | -       | Shadow size                            |
-| `bordered`    | `boolean`                               | `false` | Adds border to card                    |
-| `imageFull`   | `boolean`                               | `false` | Makes image cover full card width      |
-| `interactive` | `boolean`                               | `false` | Makes card clickable with React Aria  |
-| `onPress`     | `() => void`                            | -       | Handler for click/press events         |
+| Prop          | Type                                    | Default | Description                             |
+| ------------- | --------------------------------------- | ------- | --------------------------------------- |
+| `compact`     | `boolean`                               | `false` | Reduces padding in card body            |
+| `shadow`      | `'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | -       | Shadow size                             |
+| `bordered`    | `boolean`                               | `false` | Adds border to card                     |
+| `imageFull`   | `boolean`                               | `false` | Makes image cover full card width       |
+| `interactive` | `boolean`                               | `false` | Makes card clickable with React Aria    |
+| `onPress`     | `() => void`                            | -       | Handler for click/press events          |
 | `isDisabled`  | `boolean`                               | `false` | Disables interaction (interactive only) |
-| `className`   | `string`                                | -       | Additional CSS classes                 |
-| `children`    | `ReactNode`                             | -       | Card content                           |
+| `className`   | `string`                                | -       | Additional CSS classes                  |
+| `children`    | `ReactNode`                             | -       | Card content                            |
 
 ### Card.Title Props
 
@@ -182,6 +182,7 @@ The Card component follows WCAG accessibility guidelines:
 ### Interactive Cards
 
 When using `interactive` prop:
+
 - Card becomes focusable and clickable
 - Supports keyboard navigation (Enter/Space keys)
 - Applies `role="button"` for screen readers
@@ -190,8 +191,8 @@ When using `interactive` prop:
 
 ```tsx
 // Good: Accessible interactive card
-<Card 
-  interactive 
+<Card
+  interactive
   onPress={() => navigate('/details')}
   aria-label="View product details"
 >

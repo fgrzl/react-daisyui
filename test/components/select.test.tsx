@@ -92,7 +92,7 @@ describe('Select', () => {
     )
 
     const user = userEvent.setup()
-    
+
     // Open the select
     await act(async () => {
       await user.click(screen.getByRole('button'))
@@ -202,7 +202,7 @@ describe('Select', () => {
     button.focus()
 
     const user = userEvent.setup()
-    
+
     // Open with Enter
     await act(async () => {
       await user.keyboard('{Enter}')
@@ -236,7 +236,7 @@ describe('Select', () => {
     button.focus()
 
     const user = userEvent.setup()
-    
+
     // Open with Space
     await act(async () => {
       await user.keyboard(' ')
@@ -254,7 +254,7 @@ describe('Select', () => {
     )
 
     const user = userEvent.setup()
-    
+
     // Open the select
     await act(async () => {
       await user.click(screen.getByRole('button'))
@@ -273,7 +273,7 @@ describe('Select', () => {
   it('supports controlled state', async () => {
     const TestComponent = () => {
       const [selectedKey, setSelectedKey] = React.useState<string | number>('option2')
-      
+
       return (
         <Select selectedKey={selectedKey} onSelectionChange={setSelectedKey}>
           <SelectItem id="option1">Option 1</SelectItem>
@@ -284,7 +284,7 @@ describe('Select', () => {
     }
 
     render(<TestComponent />)
-    
+
     // Should show the initially selected option in the button
     const button = screen.getByRole('button')
     expect(button).toHaveTextContent('Option 2')
@@ -297,7 +297,7 @@ describe('Select', () => {
         <SelectItem id="option2">Option 2</SelectItem>
       </Select>
     )
-    
+
     // Should show the default selected option in the button
     const button = screen.getByRole('button')
     expect(button).toHaveTextContent('Option 1')
@@ -312,12 +312,12 @@ describe('Select', () => {
     )
 
     const button = screen.getByRole('button')
-    
+
     // Focus the select button
     await act(async () => {
       button.focus()
     })
-    
+
     expect(button).toHaveFocus()
   })
 
@@ -327,7 +327,7 @@ describe('Select', () => {
         <SelectItem id="option1">Option 1</SelectItem>
       </Select>
     )
-    
+
     const arrow = screen.getByText('▼')
     expect(arrow).toBeInTheDocument()
     expect(arrow).toHaveAttribute('aria-hidden', 'true')
