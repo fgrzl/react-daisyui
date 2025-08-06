@@ -272,7 +272,7 @@ describe('Select', () => {
 
   it('supports controlled state', async () => {
     const TestComponent = () => {
-      const [selectedKey, setSelectedKey] = React.useState<any>('option2')
+      const [selectedKey, setSelectedKey] = React.useState<string | number>('option2')
       
       return (
         <Select selectedKey={selectedKey} onSelectionChange={setSelectedKey}>

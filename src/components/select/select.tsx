@@ -21,7 +21,7 @@ import { cn } from '@/utils/cn'
  * @property {boolean} [ghost] - Whether to use ghost style.
  * @property {string} [placeholder] - Placeholder text when no option is selected.
  */
-export interface SelectProps extends Omit<AriaSelectProps<any>, 'children'> {
+export interface SelectProps extends Omit<AriaSelectProps<object>, 'children'> {
   children?: React.ReactNode
   className?: string
   variant?:
@@ -49,7 +49,7 @@ export interface SelectProps extends Omit<AriaSelectProps<any>, 'children'> {
 export interface SelectItemProps {
   children?: React.ReactNode
   className?: string
-  id: any
+  id: string | number
 }
 
 export default function Select({
