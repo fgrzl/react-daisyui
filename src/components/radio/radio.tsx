@@ -37,7 +37,7 @@ export default function Radio({
   className,
   variant,
   size = 'md',
-  isDisabled = false,
+  isDisabled,
   ...props
 }: RadioProps) {
   const baseClasses = 'radio'
