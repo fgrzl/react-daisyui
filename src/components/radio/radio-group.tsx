@@ -39,7 +39,7 @@ export default function RadioGroup({
   errorMessage,
   orientation = 'vertical',
   isRequired = false,
-  isDisabled = false,
+  isDisabled,
   ...props
 }: RadioGroupProps) {
   const groupClasses = cn(
