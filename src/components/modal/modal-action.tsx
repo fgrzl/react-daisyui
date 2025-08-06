@@ -14,7 +14,7 @@ export interface ModalActionProps extends HTMLAttributes<HTMLDivElement> {
 
 /**
  * ModalAction component provides a container for action buttons, typically placed at the bottom of the modal.
- * 
+ *
  * @example
  * ```tsx
  * <ModalAction justify="end">

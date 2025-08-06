@@ -43,7 +43,7 @@ import { Checkbox } from 'react-daisyui'
 ```tsx
 const [isChecked, setIsChecked] = useState(false)
 
-<Checkbox 
+<Checkbox
   isSelected={isChecked}
   onChange={setIsChecked}
 >
@@ -85,21 +85,21 @@ const [isChecked, setIsChecked] = useState(false)
 
 ## Props
 
-| Prop              | Type                                                                                        | Default | Description                                    |
-| ----------------- | ------------------------------------------------------------------------------------------- | ------- | ---------------------------------------------- |
+| Prop              | Type                                                                                               | Default | Description                                    |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------- | ---------------------------------------------- |
 | `variant`         | `'primary' \| 'secondary' \| 'accent' \| 'neutral' \| 'info' \| 'success' \| 'warning' \| 'error'` | -       | Checkbox color variant                         |
-| `size`            | `'xs' \| 'sm' \| 'md' \| 'lg'`                                                             | `'md'`  | Checkbox size                                  |
-| `isSelected`      | `boolean`                                                                                  | -       | Whether the checkbox is checked (controlled)   |
-| `isDisabled`      | `boolean`                                                                                  | `false` | Whether the checkbox is disabled               |
-| `isIndeterminate` | `boolean`                                                                                  | `false` | Whether the checkbox is in indeterminate state |
-| `onChange`        | `(isSelected: boolean) => void`                                                            | -       | Callback fired when checkbox state changes     |
-| `children`        | `ReactNode`                                                                                | -       | Checkbox label content                         |
-| `className`       | `string`                                                                                   | -       | Additional CSS classes                         |
-| `name`            | `string`                                                                                   | -       | Form field name                                |
-| `value`           | `string`                                                                                   | -       | Form field value                               |
-| `required`        | `boolean`                                                                                  | `false` | Whether the checkbox is required               |
+| `size`            | `'xs' \| 'sm' \| 'md' \| 'lg'`                                                                     | `'md'`  | Checkbox size                                  |
+| `isSelected`      | `boolean`                                                                                          | -       | Whether the checkbox is checked (controlled)   |
+| `isDisabled`      | `boolean`                                                                                          | `false` | Whether the checkbox is disabled               |
+| `isIndeterminate` | `boolean`                                                                                          | `false` | Whether the checkbox is in indeterminate state |
+| `onChange`        | `(isSelected: boolean) => void`                                                                    | -       | Callback fired when checkbox state changes     |
+| `children`        | `ReactNode`                                                                                        | -       | Checkbox label content                         |
+| `className`       | `string`                                                                                           | -       | Additional CSS classes                         |
+| `name`            | `string`                                                                                           | -       | Form field name                                |
+| `value`           | `string`                                                                                           | -       | Form field value                               |
+| `required`        | `boolean`                                                                                          | `false` | Whether the checkbox is required               |
 
-*Inherits all props from React Aria's [CheckboxProps](https://react-spectrum.adobe.com/react-aria/Checkbox.html#props)*
+_Inherits all props from React Aria's [CheckboxProps](https://react-spectrum.adobe.com/react-aria/Checkbox.html#props)_
 
 ## Examples
 
@@ -113,7 +113,7 @@ function PreferencesForm() {
   const [preferences, setPreferences] = useState({
     newsletter: false,
     notifications: true,
-    marketing: false
+    marketing: false,
   })
 
   const handleChange = (key: keyof typeof preferences) => (isSelected: boolean) => {
@@ -124,24 +124,24 @@ function PreferencesForm() {
     <form className="space-y-4">
       <div>
         <h3 className="text-lg font-medium mb-2">Email Preferences</h3>
-        
-        <Checkbox 
+
+        <Checkbox
           variant="primary"
           isSelected={preferences.newsletter}
           onChange={handleChange('newsletter')}
         >
           Newsletter subscription
         </Checkbox>
-        
-        <Checkbox 
+
+        <Checkbox
           variant="info"
           isSelected={preferences.notifications}
           onChange={handleChange('notifications')}
         >
           Important notifications
         </Checkbox>
-        
-        <Checkbox 
+
+        <Checkbox
           variant="warning"
           isSelected={preferences.marketing}
           onChange={handleChange('marketing')}
@@ -164,25 +164,19 @@ function CheckboxGroup() {
   const [items, setItems] = useState([
     { id: 1, name: 'Item 1', checked: false },
     { id: 2, name: 'Item 2', checked: false },
-    { id: 3, name: 'Item 3', checked: false }
+    { id: 3, name: 'Item 3', checked: false },
   ])
 
-  const allSelected = useMemo(() => 
-    items.every(item => item.checked), [items]
-  )
-  
-  const someSelected = useMemo(() => 
-    items.some(item => item.checked), [items]
-  )
+  const allSelected = useMemo(() => items.every(item => item.checked), [items])
+
+  const someSelected = useMemo(() => items.some(item => item.checked), [items])
 
   const handleSelectAll = (isSelected: boolean) => {
     setItems(prev => prev.map(item => ({ ...item, checked: isSelected })))
   }
 
   const handleItemChange = (id: number) => (isSelected: boolean) => {
-    setItems(prev => prev.map(item => 
-      item.id === id ? { ...item, checked: isSelected } : item
-    ))
+    setItems(prev => prev.map(item => (item.id === id ? { ...item, checked: isSelected } : item)))
   }
 
   return (
@@ -195,7 +189,7 @@ function CheckboxGroup() {
       >
         Select All
       </Checkbox>
-      
+
       <div className="ml-6 space-y-1">
         {items.map(item => (
           <Checkbox
@@ -219,12 +213,20 @@ function CheckboxGroup() {
 ```tsx
 <div className="space-y-4">
   <div className="space-x-4">
-    <Checkbox size="xs" variant="primary">Extra Small</Checkbox>
-    <Checkbox size="sm" variant="secondary">Small</Checkbox>
-    <Checkbox size="md" variant="accent">Medium</Checkbox>
-    <Checkbox size="lg" variant="success">Large</Checkbox>
+    <Checkbox size="xs" variant="primary">
+      Extra Small
+    </Checkbox>
+    <Checkbox size="sm" variant="secondary">
+      Small
+    </Checkbox>
+    <Checkbox size="md" variant="accent">
+      Medium
+    </Checkbox>
+    <Checkbox size="lg" variant="success">
+      Large
+    </Checkbox>
   </div>
-  
+
   <div className="space-x-4">
     <Checkbox variant="info">Info</Checkbox>
     <Checkbox variant="warning">Warning</Checkbox>
@@ -239,18 +241,21 @@ function CheckboxGroup() {
 The Checkbox component provides comprehensive accessibility features:
 
 ### Keyboard Navigation
+
 - **Space**: Toggle checkbox state
 - **Enter**: Toggle checkbox state (when focused)
 - **Tab**: Navigate to next focusable element
 - **Shift + Tab**: Navigate to previous focusable element
 
 ### Screen Reader Support
+
 - Proper ARIA attributes for state communication
 - Support for `aria-label`, `aria-labelledby`, and `aria-describedby`
 - Automatic announcement of state changes
 - Indeterminate state properly communicated
 
 ### Focus Management
+
 - Clear focus indicators
 - Proper focus order in tab sequence
 - Focus remains on checkbox after state changes
@@ -259,10 +264,7 @@ The Checkbox component provides comprehensive accessibility features:
 
 ```tsx
 <div>
-  <Checkbox 
-    aria-describedby="newsletter-description"
-    variant="primary"
-  >
+  <Checkbox aria-describedby="newsletter-description" variant="primary">
     Newsletter subscription
   </Checkbox>
   <p id="newsletter-description" className="text-sm text-gray-500">
@@ -276,10 +278,7 @@ The Checkbox component provides comprehensive accessibility features:
 The Checkbox component uses DaisyUI's checkbox classes and can be customized using Tailwind CSS utilities:
 
 ```tsx
-<Checkbox 
-  className="hover:scale-105 transition-transform"
-  variant="primary"
->
+<Checkbox className="hover:scale-105 transition-transform" variant="primary">
   Custom styled checkbox
 </Checkbox>
 ```
