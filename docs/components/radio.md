@@ -32,7 +32,7 @@ function MyForm() {
 | className | `string`                                                                     | -       | Additional CSS classes                |
 | variant   | `'primary' \| 'secondary' \| 'accent' \| 'success' \| 'warning' \| 'info' \| 'error'` | -       | The radio button variant              |
 | size      | `'xs' \| 'sm' \| 'md' \| 'lg'`                                               | `'md'`  | The size of the radio button          |
-| disabled  | `boolean`                                                                    | `false` | Whether the radio button is disabled  |
+| isDisabled  | `boolean`                                                                    | `false` | Whether the radio button is disabled  |
 | value     | `string`                                                                     | -       | The value of the radio button         |
 
 ### RadioGroup Props
