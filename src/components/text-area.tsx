@@ -90,15 +90,14 @@ export default function TextArea({
     lg: 'textarea-lg',
   } as const
 
-  const modifierClasses = [bordered && !ghost && 'textarea-bordered', ghost && 'textarea-ghost'].filter(
-    Boolean
-  )
-
   const textareaClasses = cn(
     baseClasses,
     variant && variantClasses[variant],
     sizeClasses[size],
-    ...modifierClasses,
+    {
+      'textarea-bordered': bordered && !ghost,
+      'textarea-ghost': ghost,
+    },
     className
   )
 
