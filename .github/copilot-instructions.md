@@ -308,6 +308,7 @@ Content
 - Define explicit types for all props
 - Use union types for variants
 - Avoid `any` type
+- Use prettier to enforce code formatting
 
 ### 2. **React Best Practices**
 
