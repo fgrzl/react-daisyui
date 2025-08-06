@@ -16,9 +16,7 @@ export interface RadioProps extends AriaRadioProps {
   className?: string
   variant?: 'primary' | 'secondary' | 'accent' | 'success' | 'warning' | 'info' | 'error'
   size?: 'xs' | 'sm' | 'md' | 'lg'
-  isDisabled?: boolean
 }
-
 /**
  * Radio component built with React Aria and styled with DaisyUI.
  * 
