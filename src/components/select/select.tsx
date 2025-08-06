@@ -44,7 +44,7 @@ export interface SelectProps extends Omit<AriaSelectProps<object>, 'children'> {
  *
  * @property {React.ReactNode} [children] - The content to display inside the select item.
  * @property {string} [className] - Additional CSS classes to apply to the select item.
- * @property {any} id - The unique identifier for the select item value.
+ * @property {string | number} id - The unique identifier for the select item value.
  */
 export interface SelectItemProps {
   children?: React.ReactNode
