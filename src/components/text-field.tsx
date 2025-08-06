@@ -33,7 +33,7 @@ export interface TextFieldProps extends AriaTextFieldProps {
 
 /**
  * TextField component built on React Aria Components with DaisyUI styling.
- * 
+ *
  * Provides an accessible text input field with label, description, and error message support.
  * Follows DaisyUI design standards while leveraging React Aria's accessibility features.
  *
@@ -67,7 +67,7 @@ export default function TextField({
 
   const variantClasses = {
     primary: 'input-primary',
-    secondary: 'input-secondary', 
+    secondary: 'input-secondary',
     accent: 'input-accent',
     info: 'input-info',
     success: 'input-success',
@@ -77,15 +77,14 @@ export default function TextField({
 
   const sizeClasses = {
     xs: 'input-xs',
-    sm: 'input-sm', 
+    sm: 'input-sm',
     md: '',
     lg: 'input-lg',
   } as const
 
-  const modifierClasses = [
-    bordered && !ghost && 'input-bordered',
-    ghost && 'input-ghost',
-  ].filter(Boolean)
+  const modifierClasses = [bordered && !ghost && 'input-bordered', ghost && 'input-ghost'].filter(
+    Boolean
+  )
 
   const inputClasses = cn(
     baseClasses,

@@ -13,7 +13,7 @@ export interface ModalBoxProps extends AriaDialogProps {
 
 /**
  * ModalBox component provides the container for modal content with proper styling and padding.
- * 
+ *
  * @example
  * ```tsx
  * <ModalBox>

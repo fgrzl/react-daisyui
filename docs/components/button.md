@@ -74,21 +74,21 @@ import { Button } from 'react-daisyui'
 
 ## Props
 
-| Prop        | Type                                                                                                  | Default     | Description                               |
-| ----------- | ----------------------------------------------------------------------------------------------------- | ----------- | ----------------------------------------- |
-| `variant`   | `'primary' \| 'secondary' \| 'accent' \| 'ghost' \| 'link' \| 'neutral' \| 'info' \| 'success' \| 'warning' \| 'error'` | `undefined` | Button color variant                      |
-| `size`      | `'xs' \| 'sm' \| 'md' \| 'lg'`                                                                        | `undefined` | Button size                               |
-| `outline`   | `boolean`                                                                                             | `false`     | Whether to use outline style              |
-| `loading`   | `boolean`                                                                                             | `false`     | Shows loading spinner and disables button |
-| `wide`      | `boolean`                                                                                             | `false`     | Makes button wider                        |
-| `block`     | `boolean`                                                                                             | `false`     | Makes button full width                   |
-| `circle`    | `boolean`                                                                                             | `false`     | Makes button circular                     |
-| `square`    | `boolean`                                                                                             | `false`     | Makes button square                       |
-| `glass`     | `boolean`                                                                                             | `false`     | Applies glass effect                      |
-| `active`    | `boolean`                                                                                             | `false`     | Sets button to active state               |
-| `isDisabled`| `boolean`                                                                                             | `false`     | Disables the button                       |
-| `className` | `string`                                                                                              | -           | Additional CSS classes                    |
-| `children`  | `ReactNode`                                                                                           | -           | Button content                            |
+| Prop         | Type                                                                                                                    | Default     | Description                               |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------- | ----------- | ----------------------------------------- |
+| `variant`    | `'primary' \| 'secondary' \| 'accent' \| 'ghost' \| 'link' \| 'neutral' \| 'info' \| 'success' \| 'warning' \| 'error'` | `undefined` | Button color variant                      |
+| `size`       | `'xs' \| 'sm' \| 'md' \| 'lg'`                                                                                          | `undefined` | Button size                               |
+| `outline`    | `boolean`                                                                                                               | `false`     | Whether to use outline style              |
+| `loading`    | `boolean`                                                                                                               | `false`     | Shows loading spinner and disables button |
+| `wide`       | `boolean`                                                                                                               | `false`     | Makes button wider                        |
+| `block`      | `boolean`                                                                                                               | `false`     | Makes button full width                   |
+| `circle`     | `boolean`                                                                                                               | `false`     | Makes button circular                     |
+| `square`     | `boolean`                                                                                                               | `false`     | Makes button square                       |
+| `glass`      | `boolean`                                                                                                               | `false`     | Applies glass effect                      |
+| `active`     | `boolean`                                                                                                               | `false`     | Sets button to active state               |
+| `isDisabled` | `boolean`                                                                                                               | `false`     | Disables the button                       |
+| `className`  | `string`                                                                                                                | -           | Additional CSS classes                    |
+| `children`   | `ReactNode`                                                                                                             | -           | Button content                            |
 
 ## Examples
 

@@ -72,11 +72,11 @@ describe('TextField', () => {
     const user = userEvent.setup()
     render(<TextField label="Email" />)
     const input = screen.getByRole('textbox')
-    
+
     await act(async () => {
       await user.type(input, 'test@example.com')
     })
-    
+
     expect(input).toHaveValue('test@example.com')
   })
 
@@ -85,11 +85,11 @@ describe('TextField', () => {
     const user = userEvent.setup()
     render(<TextField label="Email" onChange={handleChange} />)
     const input = screen.getByRole('textbox')
-    
+
     await act(async () => {
       await user.type(input, 'a')
     })
-    
+
     expect(handleChange).toHaveBeenCalled()
   })
 
@@ -108,7 +108,7 @@ describe('TextField', () => {
   it('supports all DaisyUI variant colors', () => {
     const variants = [
       'primary',
-      'secondary', 
+      'secondary',
       'accent',
       'info',
       'success',
@@ -176,11 +176,11 @@ describe('TextField', () => {
     const user = userEvent.setup()
     render(<TextField label="Email" onFocus={handleFocus} />)
     const input = screen.getByRole('textbox')
-    
+
     await act(async () => {
       await user.click(input)
     })
-    
+
     expect(handleFocus).toHaveBeenCalled()
   })
 
@@ -189,12 +189,12 @@ describe('TextField', () => {
     const user = userEvent.setup()
     render(<TextField label="Email" onBlur={handleBlur} />)
     const input = screen.getByRole('textbox')
-    
+
     await act(async () => {
       await user.click(input)
       await user.tab()
     })
-    
+
     expect(handleBlur).toHaveBeenCalled()
   })
 
@@ -202,7 +202,7 @@ describe('TextField', () => {
     render(<TextField label="Email" />)
     const label = screen.getByText('Email')
     const input = screen.getByRole('textbox')
-    
+
     expect(label.closest('label')).toHaveAttribute('for', input.id)
   })
 
@@ -210,7 +210,7 @@ describe('TextField', () => {
     render(<TextField label="Email" description="Enter your email address" />)
     const input = screen.getByRole('textbox')
     const description = screen.getByText('Enter your email address')
-    
+
     expect(input).toHaveAttribute('aria-describedby')
     expect(input.getAttribute('aria-describedby')).toContain(description.id)
   })
@@ -219,7 +219,7 @@ describe('TextField', () => {
     render(<TextField label="Email" errorMessage="Invalid email format" />)
     const input = screen.getByRole('textbox')
     const errorMessage = screen.getByText('Invalid email format')
-    
+
     expect(input).toHaveAttribute('aria-describedby')
     expect(input.getAttribute('aria-describedby')).toContain(errorMessage.id)
   })
@@ -228,24 +228,16 @@ describe('TextField', () => {
     const user = userEvent.setup()
     render(<TextField label="Email" />)
     const input = screen.getByRole('textbox')
-    
+
     await act(async () => {
       await user.tab()
     })
-    
+
     expect(input).toHaveFocus()
   })
 
   it('combines multiple CSS classes correctly', () => {
-    render(
-      <TextField
-        label="Email"
-        variant="primary"
-        size="lg"
-        ghost
-        className="custom-class"
-      />
-    )
+    render(<TextField label="Email" variant="primary" size="lg" ghost className="custom-class" />)
     const input = screen.getByRole('textbox')
     expect(input).toHaveClass('input', 'input-primary', 'input-lg', 'input-ghost', 'custom-class')
     expect(input).not.toHaveClass('input-bordered')

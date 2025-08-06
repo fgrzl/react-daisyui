@@ -1,5 +1,8 @@
 import React from 'react'
-import { Checkbox as AriaCheckbox, type CheckboxProps as AriaCheckboxProps } from 'react-aria-components'
+import {
+  Checkbox as AriaCheckbox,
+  type CheckboxProps as AriaCheckboxProps,
+} from 'react-aria-components'
 import { cn } from '@/utils/cn'
 
 /**
@@ -35,11 +38,11 @@ export interface CheckboxProps extends AriaCheckboxProps {
 
 /**
  * Checkbox component built with React Aria and styled with DaisyUI.
- * 
+ *
  * Provides an accessible checkbox input with support for all DaisyUI variants,
  * sizes, and states. The component includes proper keyboard navigation,
  * screen reader support, and follows WCAG accessibility guidelines.
- * 
+ *
  * @example
  * ```tsx
  * <Checkbox variant="primary" size="md" onChange={(isSelected) => console.log(isSelected)}>

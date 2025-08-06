@@ -24,7 +24,7 @@ export interface ModalProps extends AriaModalOverlayProps {
 
 /**
  * Modal component provides accessible overlays for dialogs, alerts, and popups.
- * 
+ *
  * @example
  * ```tsx
  * <Modal isOpen={isOpen} onOpenChange={setIsOpen}>
@@ -37,14 +37,14 @@ export interface ModalProps extends AriaModalOverlayProps {
  *   </Modal.Box>
  * </Modal>
  * ```
- * 
+ *
  * @example Responsive modal
  * ```tsx
  * <Modal isOpen={isOpen} onOpenChange={setIsOpen} responsive>
  *   <Modal.Box>Content</Modal.Box>
  * </Modal>
  * ```
- * 
+ *
  * @example Modal with custom position
  * ```tsx
  * <Modal isOpen={isOpen} onOpenChange={setIsOpen} position="top">
@@ -69,7 +69,7 @@ export default function Modal({
   } as const
 
   const modifierClasses = [
-    responsive ? 'modal-bottom sm:modal-middle' : positionClasses[position]
+    responsive ? 'modal-bottom sm:modal-middle' : positionClasses[position],
   ].filter(Boolean)
 
   const classes = cn(baseClasses, ...modifierClasses, className)

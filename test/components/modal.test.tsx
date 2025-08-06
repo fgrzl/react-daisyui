@@ -12,7 +12,7 @@ describe('Modal', () => {
         </ModalBox>
       </Modal>
     )
-    
+
     expect(screen.getByRole('dialog')).toBeInTheDocument()
     expect(screen.getByText('Test Modal')).toBeInTheDocument()
     expect(screen.getByText('Modal content')).toBeInTheDocument()
@@ -26,7 +26,7 @@ describe('Modal', () => {
         </ModalBox>
       </Modal>
     )
-    
+
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
   })
 
@@ -36,7 +36,7 @@ describe('Modal', () => {
         <ModalBox aria-label="Test Modal">Content</ModalBox>
       </Modal>
     )
-    
+
     const modal = screen.getByRole('dialog').closest('.modal')
     expect(modal).toHaveClass('modal', 'modal-open')
   })
@@ -47,7 +47,7 @@ describe('Modal', () => {
         <ModalBox aria-label="Test Modal">Content</ModalBox>
       </Modal>
     )
-    
+
     const modal = screen.getByRole('dialog').closest('.modal')
     expect(modal).toHaveClass('modal-bottom', 'sm:modal-middle')
   })
@@ -58,10 +58,10 @@ describe('Modal', () => {
         <ModalBox aria-label="Test Modal">Content</ModalBox>
       </Modal>
     )
-    
+
     let modal = screen.getByRole('dialog').closest('.modal')
     expect(modal).toHaveClass('modal-top')
-    
+
     rerender(
       <Modal isOpen position="bottom">
         <ModalBox aria-label="Test Modal">Content</ModalBox>
@@ -69,7 +69,7 @@ describe('Modal', () => {
     )
     modal = screen.getByRole('dialog').closest('.modal')
     expect(modal).toHaveClass('modal-bottom')
-    
+
     rerender(
       <Modal isOpen position="middle">
         <ModalBox aria-label="Test Modal">Content</ModalBox>
@@ -85,7 +85,7 @@ describe('Modal', () => {
         <ModalBox aria-label="Test Modal">Content</ModalBox>
       </Modal>
     )
-    
+
     const modal = screen.getByRole('dialog').closest('.modal')
     expect(modal).toHaveClass('modal-middle')
   })
@@ -96,7 +96,7 @@ describe('Modal', () => {
         <ModalBox aria-label="Test Modal">Content</ModalBox>
       </Modal>
     )
-    
+
     const modal = screen.getByRole('dialog').closest('.modal')
     // When responsive is true, it should use responsive classes instead of position
     expect(modal).toHaveClass('modal-bottom', 'sm:modal-middle')
@@ -109,7 +109,7 @@ describe('Modal', () => {
         <ModalBox aria-label="Test Modal">Content</ModalBox>
       </Modal>
     )
-    
+
     const modal = screen.getByRole('dialog').closest('.modal')
     expect(modal).toHaveClass('custom-modal')
   })
@@ -120,30 +120,30 @@ describe('Modal', () => {
         <ModalBox aria-label="Test Modal">Content</ModalBox>
       </Modal>
     )
-    
+
     // Check that modal renders when backdrop is true
     expect(screen.getByRole('dialog')).toBeInTheDocument()
-    
+
     rerender(
       <Modal isOpen backdrop={false}>
         <ModalBox aria-label="Test Modal">Content</ModalBox>
       </Modal>
     )
-    
+
     // Should still render when backdrop is false
     expect(screen.getByRole('dialog')).toBeInTheDocument()
   })
 
   it('respects the backdrop prop setting', () => {
     const handleClose = vi.fn()
-    
+
     // Test that the backdrop prop is properly passed to React Aria
     render(
       <Modal isOpen backdrop={false} onOpenChange={handleClose}>
         <ModalBox aria-label="Test Modal">Content</ModalBox>
       </Modal>
     )
-    
+
     // Modal should still be present
     expect(screen.getByRole('dialog')).toBeInTheDocument()
     // The specific behavior of backdrop clicking is handled by React Aria internally
@@ -156,12 +156,12 @@ describe('Modal', () => {
         <ModalBox aria-label="Test Modal">Content</ModalBox>
       </Modal>
     )
-    
+
     const user = userEvent.setup()
     await act(async () => {
       await user.keyboard('{Escape}')
     })
-    
+
     expect(handleClose).toHaveBeenCalledWith(false)
   })
 
@@ -174,15 +174,15 @@ describe('Modal', () => {
         </ModalBox>
       </Modal>
     )
-    
+
     const firstButton = screen.getByText('First Button')
     const secondButton = screen.getByText('Second Button')
-    
+
     // Focus should be trapped within the modal
     const user = userEvent.setup()
     firstButton.focus()
     expect(document.activeElement).toBe(firstButton)
-    
+
     await act(async () => {
       await user.tab()
     })
@@ -199,7 +199,7 @@ describe('ModalBox', () => {
         </ModalBox>
       </Modal>
     )
-    
+
     const dialog = screen.getByRole('dialog')
     expect(dialog).toBeInTheDocument()
     expect(dialog).toHaveClass('modal-box')
@@ -214,7 +214,7 @@ describe('ModalBox', () => {
         </ModalBox>
       </Modal>
     )
-    
+
     const dialog = screen.getByRole('dialog')
     expect(dialog).toHaveClass('modal-box', 'custom-box')
   })
@@ -227,7 +227,7 @@ describe('ModalBox', () => {
         </ModalBox>
       </Modal>
     )
-    
+
     const dialog = screen.getByRole('dialog')
     expect(dialog).toHaveAttribute('aria-label', 'Custom Modal')
     expect(dialog).toHaveAttribute('aria-describedby', 'modal-desc')
@@ -241,7 +241,7 @@ describe('ModalAction', () => {
         <button>Action Button</button>
       </ModalAction>
     )
-    
+
     const actionContainer = screen.getByText('Action Button').parentElement
     expect(actionContainer).toHaveClass('modal-action')
   })
@@ -252,10 +252,10 @@ describe('ModalAction', () => {
         <button>Start</button>
       </ModalAction>
     )
-    
+
     let container = screen.getByText('Start').parentElement
     expect(container).toHaveClass('justify-start')
-    
+
     rerender(
       <ModalAction justify="center">
         <button>Center</button>
@@ -263,7 +263,7 @@ describe('ModalAction', () => {
     )
     container = screen.getByText('Center').parentElement
     expect(container).toHaveClass('justify-center')
-    
+
     rerender(
       <ModalAction justify="end">
         <button>End</button>
@@ -279,7 +279,7 @@ describe('ModalAction', () => {
         <button>Default</button>
       </ModalAction>
     )
-    
+
     const container = screen.getByText('Default').parentElement
     expect(container).toHaveClass('justify-end')
   })
@@ -290,7 +290,7 @@ describe('ModalAction', () => {
         <button>Custom</button>
       </ModalAction>
     )
-    
+
     const container = screen.getByText('Custom').parentElement
     expect(container).toHaveClass('modal-action', 'custom-action')
   })
@@ -301,7 +301,7 @@ describe('ModalAction', () => {
         <button>Test</button>
       </ModalAction>
     )
-    
+
     const container = screen.getByTestId('modal-actions')
     expect(container).toHaveAttribute('id', 'actions')
   })
@@ -310,7 +310,7 @@ describe('ModalAction', () => {
 describe('Modal Integration', () => {
   it('works together with all sub-components', () => {
     const handleClose = vi.fn()
-    
+
     render(
       <Modal isOpen onOpenChange={handleClose}>
         <ModalBox aria-label="Confirmation Dialog">
@@ -323,7 +323,7 @@ describe('Modal Integration', () => {
         </ModalBox>
       </Modal>
     )
-    
+
     expect(screen.getByRole('dialog')).toBeInTheDocument()
     expect(screen.getByText('Confirmation')).toBeInTheDocument()
     expect(screen.getByText('Are you sure you want to proceed?')).toBeInTheDocument()
@@ -334,7 +334,7 @@ describe('Modal Integration', () => {
   it('handles complex interaction flows', async () => {
     const handleClose = vi.fn()
     const handleConfirm = vi.fn()
-    
+
     render(
       <Modal isOpen onOpenChange={handleClose}>
         <ModalBox aria-label="Delete Item">
@@ -347,16 +347,16 @@ describe('Modal Integration', () => {
         </ModalBox>
       </Modal>
     )
-    
+
     const user = userEvent.setup()
-    
+
     // Test cancel button
     await act(async () => {
       await user.click(screen.getByText('Cancel'))
     })
     expect(handleClose).toHaveBeenCalledWith(false)
-    
-    // Test confirm button  
+
+    // Test confirm button
     await act(async () => {
       await user.click(screen.getByText('Delete'))
     })
@@ -375,10 +375,10 @@ describe('Modal Integration', () => {
         </ModalBox>
       </Modal>
     )
-    
+
     const dialog = screen.getByRole('dialog')
     expect(dialog).toHaveAttribute('aria-labelledby', 'modal-title')
-    
+
     // Check that modal title is connected
     const title = screen.getByText('Accessible Modal')
     expect(title).toHaveAttribute('id', 'modal-title')

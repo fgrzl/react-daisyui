@@ -178,15 +178,15 @@ Container for action buttons, typically placed at the bottom of the modal.
 
 ### Modal Props
 
-| Prop         | Type                              | Default    | Description                                                      |
-| ------------ | --------------------------------- | ---------- | ---------------------------------------------------------------- |
-| `isOpen`     | `boolean`                         | `false`    | Controls modal visibility                                        |
-| `onOpenChange` | `(isOpen: boolean) => void`     | -          | Callback when modal should open/close                           |
-| `backdrop`   | `boolean`                         | `true`     | Whether clicking backdrop closes modal                           |
-| `responsive` | `boolean`                         | `false`    | Makes modal responsive (bottom on mobile, middle on larger screens) |
-| `position`   | `'top' \| 'middle' \| 'bottom'`   | `'middle'` | Vertical position of modal (ignored when responsive is true)    |
-| `className`  | `string`                          | -          | Additional CSS classes                                           |
-| `children`   | `ReactNode`                       | -          | Modal content                                                    |
+| Prop           | Type                            | Default    | Description                                                         |
+| -------------- | ------------------------------- | ---------- | ------------------------------------------------------------------- |
+| `isOpen`       | `boolean`                       | `false`    | Controls modal visibility                                           |
+| `onOpenChange` | `(isOpen: boolean) => void`     | -          | Callback when modal should open/close                               |
+| `backdrop`     | `boolean`                       | `true`     | Whether clicking backdrop closes modal                              |
+| `responsive`   | `boolean`                       | `false`    | Makes modal responsive (bottom on mobile, middle on larger screens) |
+| `position`     | `'top' \| 'middle' \| 'bottom'` | `'middle'` | Vertical position of modal (ignored when responsive is true)        |
+| `className`    | `string`                        | -          | Additional CSS classes                                              |
+| `children`     | `ReactNode`                     | -          | Modal content                                                       |
 
 ### Modal.Action Props
 
